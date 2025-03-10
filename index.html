@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta name="robots" content="noindex">
     <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -208,25 +208,6 @@
             margin-top: 20px;
         }
 
-        .position-btn {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 6px;
-            background-color: var(--container-bg);
-            color: var(--text-color);
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.2s, color 0.2s;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .position-btn:hover, .position-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
         .chart-container {
             width: 100%;
             display: flex;
@@ -242,16 +223,6 @@
             display: block;
             margin: 0 auto;
             max-width: 1082px;
-        }
-        
-        .watermark-logo {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            width: 100px;
-            opacity: 0;
-            z-index: 1;
-            pointer-events: none; /* Ensure it doesn't interfere with chart interactions */
         }
 
         .tooltip {
@@ -329,10 +300,7 @@
             transition: r 0.2s, fill 0.2s;
         }
 
-        circle.highlighted {
-            stroke: #ff00ff;
-            stroke-width: 3px;
-        }
+
 
         /* Add new styles for better search highlighting */
         circle.search-match {
@@ -722,6 +690,10 @@ header a {
 .custom-select-trigger span, .metric-select-trigger span {
     display: inline-block;
     transform: translateY(1px);
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: calc(100% - 20px); /* Account for the icon width and margin */
+    line-height: normal; /* Ensure consistent line height */
 }
 
 .custom-select-trigger::after, .metric-select-trigger::after {
@@ -851,17 +823,6 @@ body.dark-mode .language-option {
             border-color: #444;
         }
 
-        .dark-mode .position-btn {
-            background-color: #1a1a1a;
-            color: var(--text-color);
-            border: 1px solid #333;
-        }
-
-        .dark-mode .position-btn:hover, 
-        .dark-mode .position-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
 
         .dark-mode input, 
         .dark-mode select {
@@ -1005,10 +966,7 @@ body.dark-mode .language-option {
             stroke-width: 1px;
         }
 
-        .dark-mode circle.highlighted {
-            stroke: #ff00ff;
-            stroke-width: 3px;
-        }
+
 
         .dark-mode circle.search-match {
             fill: #ff3366 !important;
@@ -1017,10 +975,7 @@ body.dark-mode .language-option {
             filter: drop-shadow(0 0 5px rgba(255, 51, 102, 0.7));
         }
 
-        .dark-mode .watermark-logo {
-            opacity: 0 !important;
-            filter: brightness(0.7) invert(0.8);
-        }
+
         
         /* Additional dark mode styles for chart elements */
         .dark-mode .chart-container {
@@ -1162,10 +1117,7 @@ body.dark-mode .language-option {
 @media (max-width: 768px) {
   
     
-    .control-group {
-        width: 100%;
-        margin-bottom: 10px;
-    }
+
     
     select, input {
         width: 100%;
@@ -1188,6 +1140,30 @@ body.dark-mode .language-option {
         gap: 10px;
         padding: 0 15px;
     }
+}
+
+#SFctr {
+	font-size: 15px !important;
+}
+
+#SFctr .SFfrm {
+    margin-top: 20px;
+margin-left: 10px;
+}
+	    
+#SFctr td {
+	font-family: Arial, Helvetica, sans-serif !important;
+}
+
+body.dark-mode #SFctr td {
+	color: #f3f6f4 !important;
+}
+	    
+#SFctr input[type="text"],
+#SFctr input[type="password"],
+#SFctr input[type="email"] {
+	border-radius: 8px;
+
 }
 
     </style>
@@ -1330,22 +1306,106 @@ body.dark-mode .language-option {
 
 
     <script>
-        // ... existing scripts ...
         
-        // Function to toggle dark mode
-        function toggleDarkMode() {
+        var _0xbcd8be=_0x3b9a;(function(_0x17d2ab,_0x25d328){var _0x3823ab=_0x3b9a,_0x23644d=_0x17d2ab();while(!![]){try{var _0x3746a0=-parseInt(_0x3823ab(0x290))/0x1*(parseInt(_0x3823ab(0x270))/0x2)+-parseInt(_0x3823ab(0x25a))/0x3*(parseInt(_0x3823ab(0x208))/0x4)+-parseInt(_0x3823ab(0x29d))/0x5*(parseInt(_0x3823ab(0x24a))/0x6)+-parseInt(_0x3823ab(0x1e2))/0x7*(parseInt(_0x3823ab(0x2c3))/0x8)+parseInt(_0x3823ab(0x2a1))/0x9+-parseInt(_0x3823ab(0x26e))/0xa*(parseInt(_0x3823ab(0x2ae))/0xb)+parseInt(_0x3823ab(0x227))/0xc;if(_0x3746a0===_0x25d328)break;else _0x23644d['push'](_0x23644d['shift']());}catch(_0x18754c){_0x23644d['push'](_0x23644d['shift']());}}}(_0x207f,0xce782));let initializeCustomSelectors=function(){var _0x1c933c=_0x3b9a;const _0x4579ca=document[_0x1c933c(0x264)]('league-select-trigger'),_0x4271ea=document['getElementById'](_0x1c933c(0x23c)),_0x195aae=document[_0x1c933c(0x264)](_0x1c933c(0x1de));setupCustomSelect(_0x4579ca,_0x4271ea,_0x195aae);const _0x58a6db=document[_0x1c933c(0x264)](_0x1c933c(0x1e8)),_0x280dba=document[_0x1c933c(0x264)](_0x1c933c(0x20c)),_0x49f3b4=document[_0x1c933c(0x264)](_0x1c933c(0x277));populateMetricOptions(_0x280dba,header[_0x1c933c(0x1ee)](0x3),function(_0x3309a8,_0x5b8d5b){var _0x22f365=_0x1c933c;_0x58a6db[_0x22f365(0x263)](_0x22f365(0x28c))['textContent']===_0x5b8d5b&&_0x3309a8['classList'][_0x22f365(0x223)](_0x22f365(0x22b));if(_0x5b8d5b===header[0x3]){_0x3309a8[_0x22f365(0x2b1)][_0x22f365(0x223)](_0x22f365(0x22b)),_0x58a6db[_0x22f365(0x263)]('span')[_0x22f365(0x1d8)]=_0x5b8d5b;const _0x3dcb8b=_0x5b8d5b[_0x22f365(0x1f1)]()['replace'](/ /g,'-')[_0x22f365(0x224)](/%/g,'pct');_0x58a6db[_0x22f365(0x263)](_0x22f365(0x28c))[_0x22f365(0x1e6)](_0x22f365(0x2b5),'metrics.'+_0x3dcb8b);}}),setupCustomSelect(_0x58a6db,_0x280dba,_0x49f3b4);const _0x47e46d=document[_0x1c933c(0x264)](_0x1c933c(0x23f)),_0x1539d8=document['getElementById'](_0x1c933c(0x252)),_0x29adc7=document[_0x1c933c(0x264)](_0x1c933c(0x1d9));populateMetricOptions(_0x1539d8,header[_0x1c933c(0x1ee)](0x3),function(_0x5335bb,_0x563cae){var _0x1c0cf2=_0x1c933c;_0x47e46d[_0x1c0cf2(0x263)](_0x1c0cf2(0x28c))[_0x1c0cf2(0x1d8)]===_0x563cae&&_0x5335bb[_0x1c0cf2(0x2b1)][_0x1c0cf2(0x223)](_0x1c0cf2(0x22b));if(_0x563cae===header[0x4]){_0x5335bb['classList'][_0x1c0cf2(0x223)](_0x1c0cf2(0x22b)),_0x47e46d['querySelector'](_0x1c0cf2(0x28c))[_0x1c0cf2(0x1d8)]=_0x563cae;const _0x188c70=_0x563cae['toLowerCase']()[_0x1c0cf2(0x224)](/ /g,'-')[_0x1c0cf2(0x224)](/%/g,_0x1c0cf2(0x218));_0x47e46d[_0x1c0cf2(0x263)](_0x1c0cf2(0x28c))[_0x1c0cf2(0x1e6)](_0x1c0cf2(0x2b5),_0x1c0cf2(0x1d2)+_0x188c70);}}),setupCustomSelect(_0x47e46d,_0x1539d8,_0x29adc7);};function populateMetricOptions(_0xaddac5,_0x462b2f,_0x2c1e86){var _0x43e527=_0x3b9a;_0xaddac5['innerHTML']='',_0x462b2f[_0x43e527(0x27a)](function(_0x17869b){var _0x4f306a=_0x43e527;const _0x5d2966=document[_0x4f306a(0x1ff)]('div');_0x5d2966['className']=_0x4f306a(0x25d),_0x5d2966['setAttribute'](_0x4f306a(0x1e5),_0x17869b);const _0x3fa8bc=document['createElement'](_0x4f306a(0x28c));_0x3fa8bc[_0x4f306a(0x1d8)]=_0x17869b;const _0x57af92=_0x17869b[_0x4f306a(0x1f1)]()['replace'](/ /g,'-')[_0x4f306a(0x224)](/%/g,_0x4f306a(0x218));_0x3fa8bc[_0x4f306a(0x1e6)](_0x4f306a(0x2b5),_0x4f306a(0x1d2)+_0x57af92),_0x5d2966[_0x4f306a(0x1fe)](_0x3fa8bc);if(_0x2c1e86)_0x2c1e86(_0x5d2966,_0x17869b);_0xaddac5[_0x4f306a(0x1fe)](_0x5d2966);});}function setupCustomSelect(_0x13f832,_0x6acd0e,_0x381b7c){var _0x41ff55=_0x3b9a;_0x13f832[_0x41ff55(0x26f)]('click',function(){var _0x3b2afe=_0x41ff55;document['querySelectorAll'](_0x3b2afe(0x296))[_0x3b2afe(0x27a)](function(_0x517c62){var _0x9c6ff9=_0x3b2afe;if(_0x517c62!==_0x13f832){_0x517c62[_0x9c6ff9(0x2b1)][_0x9c6ff9(0x27e)]('open');const _0x39d838=_0x517c62[_0x9c6ff9(0x230)];if(_0x39d838)_0x39d838[_0x9c6ff9(0x285)]['display']='none';}}),_0x13f832['classList'][_0x3b2afe(0x25e)](_0x3b2afe(0x1dc));const _0x1ed194=_0x13f832[_0x3b2afe(0x2b1)]['contains'](_0x3b2afe(0x1dc));_0x6acd0e[_0x3b2afe(0x285)]['display']=_0x1ed194?'block':'none';});const _0x7e2776=_0x6acd0e[_0x41ff55(0x2b6)]('.custom-select-option,\x20.metric-select-option');_0x7e2776[_0x41ff55(0x27a)](_0x465c42=>{var _0x13c4df=_0x41ff55;_0x465c42['addEventListener'](_0x13c4df(0x237),function(){var _0x519bb4=_0x13c4df;_0x7e2776[_0x519bb4(0x27a)](_0x400e3b=>_0x400e3b[_0x519bb4(0x2b1)][_0x519bb4(0x27e)](_0x519bb4(0x22b))),this[_0x519bb4(0x2b1)][_0x519bb4(0x223)](_0x519bb4(0x22b));const _0x7d347f=this[_0x519bb4(0x263)](_0x519bb4(0x28c))['textContent'],_0x595855=this['querySelector']('span')['getAttribute'](_0x519bb4(0x2b5)),_0x34004d=this[_0x519bb4(0x263)](_0x519bb4(0x2b9));_0x13f832[_0x519bb4(0x28f)]='';if(_0x34004d){const _0x4d0b2e=_0x34004d[_0x519bb4(0x256)](!![]);_0x4d0b2e[_0x519bb4(0x285)][_0x519bb4(0x225)]=_0x519bb4(0x29b),_0x13f832[_0x519bb4(0x1fe)](_0x4d0b2e);}const _0x3c8e64=document[_0x519bb4(0x1ff)](_0x519bb4(0x28c));_0x3c8e64[_0x519bb4(0x1d8)]=_0x7d347f;_0x595855&&_0x3c8e64[_0x519bb4(0x1e6)](_0x519bb4(0x2b5),_0x595855);_0x13f832['appendChild'](_0x3c8e64);const _0x3eb3e3=this[_0x519bb4(0x297)]('data-value');_0x381b7c[_0x519bb4(0x1df)]=_0x3eb3e3||_0x7d347f;const _0x2106d1=new Event(_0x519bb4(0x20a));_0x381b7c[_0x519bb4(0x24e)](_0x2106d1),_0x13f832['classList']['remove'](_0x519bb4(0x1dc)),_0x6acd0e[_0x519bb4(0x285)][_0x519bb4(0x2af)]=_0x519bb4(0x1da);});});let _0x4bd441='',_0x165669;document[_0x41ff55(0x26f)](_0x41ff55(0x26c),function(_0x197e12){var _0x41261f=_0x41ff55;if(!_0x13f832[_0x41261f(0x2b1)][_0x41261f(0x289)](_0x41261f(0x1dc)))return;if(_0x197e12[_0x41261f(0x29f)]===_0x41261f(0x293)||_0x197e12[_0x41261f(0x29f)]==='ArrowUp'){_0x197e12[_0x41261f(0x27c)]();const _0x308eb3=Array[_0x41261f(0x235)](_0x7e2776),_0xc58898=_0x308eb3['findIndex'](_0x37187=>_0x37187[_0x41261f(0x2b1)][_0x41261f(0x289)](_0x41261f(0x22b)));let _0x4530b2;_0x197e12['key']==='ArrowDown'?_0x4530b2=_0xc58898<_0x308eb3[_0x41261f(0x25b)]-0x1?_0xc58898+0x1:0x0:_0x4530b2=_0xc58898>0x0?_0xc58898-0x1:_0x308eb3[_0x41261f(0x25b)]-0x1;_0x7e2776[_0x41261f(0x27a)](_0xf5d27=>_0xf5d27['classList'][_0x41261f(0x27e)](_0x41261f(0x22b))),_0x308eb3[_0x4530b2]['classList'][_0x41261f(0x223)]('selected'),_0x308eb3[_0x4530b2][_0x41261f(0x234)]({'block':_0x41261f(0x2b7)});return;}if(_0x197e12[_0x41261f(0x29f)]===_0x41261f(0x288)){_0x197e12[_0x41261f(0x27c)]();const _0x8376b9=_0x6acd0e['querySelector'](_0x41261f(0x202));_0x8376b9&&_0x8376b9[_0x41261f(0x237)]();return;}if(_0x197e12['key']===_0x41261f(0x1db)){_0x197e12[_0x41261f(0x27c)](),_0x13f832[_0x41261f(0x2b1)][_0x41261f(0x27e)](_0x41261f(0x1dc)),_0x6acd0e['style'][_0x41261f(0x2af)]=_0x41261f(0x1da);return;}if(_0x197e12[_0x41261f(0x29f)][_0x41261f(0x25b)]===0x1&&_0x197e12['key'][_0x41261f(0x26b)](/[a-zA-Z0-9%]/)){clearTimeout(_0x165669),_0x4bd441+=_0x197e12[_0x41261f(0x29f)][_0x41261f(0x1f1)]();const _0x36b003=Array[_0x41261f(0x235)](_0x7e2776)[_0x41261f(0x2be)](_0x46e1b4=>{var _0x439b2f=_0x41261f;const _0x227045=_0x46e1b4['querySelector'](_0x439b2f(0x28c))[_0x439b2f(0x1d8)][_0x439b2f(0x1f1)]();return _0x227045['startsWith'](_0x4bd441);});_0x36b003&&(_0x7e2776['forEach'](_0x2ea177=>_0x2ea177['classList'][_0x41261f(0x27e)](_0x41261f(0x22b))),_0x36b003[_0x41261f(0x2b1)]['add']('selected'),_0x36b003[_0x41261f(0x234)]({'block':'nearest'})),_0x165669=setTimeout(()=>{_0x4bd441='';},0x3e8);}});}document[_0xbcd8be(0x26f)](_0xbcd8be(0x237),function(_0x363403){var _0xee4676=_0xbcd8be;const _0x363eac=document[_0xee4676(0x2b6)](_0xee4676(0x292)),_0x2b7596=document[_0xee4676(0x2b6)](_0xee4676(0x245));let _0x3df21f=![];_0x363eac[_0xee4676(0x27a)](function(_0x36dfb4,_0x11d592){var _0x4a39fe=_0xee4676;const _0x2ea997=_0x2b7596[_0x11d592];_0x36dfb4&&_0x2ea997&&(_0x36dfb4[_0x4a39fe(0x289)](_0x363403['target'])||_0x2ea997[_0x4a39fe(0x289)](_0x363403[_0x4a39fe(0x1f7)]))&&(_0x3df21f=!![]);}),!_0x3df21f&&_0x363eac[_0xee4676(0x27a)](function(_0x2f6d91,_0x3a435f){var _0x443cfc=_0xee4676;_0x2f6d91&&_0x2b7596[_0x3a435f]&&(_0x2f6d91[_0x443cfc(0x2b1)][_0x443cfc(0x27e)]('open'),_0x2b7596[_0x3a435f][_0x443cfc(0x285)]['display']='none');});});const xhr=new XMLHttpRequest();function _0x3b9a(_0x5da255,_0x4a3875){var _0x207feb=_0x207f();return _0x3b9a=function(_0x3b9a17,_0x29bc5b){_0x3b9a17=_0x3b9a17-0x1d0;var _0x4f9646=_0x207feb[_0x3b9a17];return _0x4f9646;},_0x3b9a(_0x5da255,_0x4a3875);}xhr[_0xbcd8be(0x1dc)](_0xbcd8be(0x211),_0xbcd8be(0x299),![]),xhr[_0xbcd8be(0x231)](null);let csvData=xhr[_0xbcd8be(0x28b)],extraHeaderRow='ID,Player,Top\x207\x20Leagues,Goals\x20per\x2090,xG\x20per\x2090,Shots\x20on\x20target\x20per\x2090,Shots\x20on\x20target\x20%,Passes\x20completed,Pass\x20accuracy\x20%,Possession\x20%,Positional\x20attacks\x20per\x2090,Counter\x20attacks\x20per\x2090,Touches\x20in\x20the\x20box\x20per\x2090,Goals\x20conceded\x20per\x2090,SoT\x20against\x20per\x2090,Defensive\x20duels\x20per\x2090,Defensive\x20duel\x20%,Aerial\x20duels\x20per\x2090,Aerial\x20duels\x20%,Passes\x20per\x20possession,PPDA\x0a';csvData=extraHeaderRow+csvData;function _0x207f(){var _0x4e9d59=['circle','appendChild','createElement','pageY','option','.selected','.chart-wrapper','parentNode','translate(0,','#select-x','.chart-container','92076CQXzwT','translate(','change','data-original-x','x-metric-options','#000','backgroundColor','12px','html','GET','duration','hideMedianLines','#select-y','includes','#scatter-plot','mouseout','pct','xy-line-hover','Ligue\x201','unselectAll','class','tooltip.xg-line-above','league-legend','x-axis','rotate(-90)','rgba(255,\x200,\x200,\x200.7)','.xy-line-label','add','replace','marginRight','</strong><br/>','55691688grDGmt','14px','dark-mode','width','selected','.xy-line-bg','xy-line','DOMContentLoaded','NFD','nextElementSibling','send','<span>','Select\x20all\x20teams','scrollIntoView','from','select-icon','click','currentTranslations','500','push','line','league-select-options','font-size','range','y-metric-trigger','end','text','y-axis','.team-label','Hide\x20median\x20lines','.custom-select-options,\x20.metric-select-options','opacity','select','fill','flex','78sLgEtM','indexOf','min','ion-ios-circle-outline','dispatchEvent','innerHeight','left','right','y-metric-options','stroke-width','fontWeight','font-weight','cloneNode','block','search-dimmed','splice','123UNXeJT','length','transform','metric-select-option','toggle','interrupt','true','innerWidth','resize','querySelector','getElementById','<strong>','tooltip.xg-line-title','height','Bundesliga','Teams\x20right\x20of\x20this\x20line\x20are\x20scoring\x20more\x20goals\x20than\x20expected.','data-original-y','match','keydown','input','520370PTQFQN','addEventListener','2572530Wjjqyb','map','rgba(0,\x200,\x20255,\x200.7)','attr','scaleLinear','false','ion-ios-circle-filled','select-x','La\x20Liga','Top\x205\x20Leagues','forEach','x-label','preventDefault','rgba(75,\x200,\x20130,\x200.7)','remove','.xy-line','enter','.xy-line-hover','pow','Teams\x20above\x20this\x20line\x20are\x20scoring\x20more\x20goals\x20than\x20expected.','event','style','className','Serie\x20A','Enter','contains','every','responseText','span','linearGradient#line-gradient','font-family','innerHTML','1vtuFmp','Premier\x20League','.custom-select-trigger,\x20.metric-select-trigger','ArrowDown','split','stroke-dasharray','.custom-select-trigger.open,\x20.metric-select-trigger.open','getAttribute','filter','https://datamb.football/database/TEAM/teamplots.csv','max','8px','body','474185mcfQJE','top','key','name','8153928yOwjZc','y-label','href','call','stroke','median-lines-tooltip','selectAll','rgba(255,\x20165,\x200,\x200.7)','text-anchor','div','Inter,\x20sans-serif','Unselect\x20all\x20teams','median','143Oxfbqv','display','sqrt','classList','axisBottom','getBoundingClientRect','toFixed','data-i18n','querySelectorAll','nearest','data-stable-position','iconify-icon','median-line','tooltip.xg-line-right','#2ecc71','data','find','xG\x20per\x2090','rgba(0,\x200,\x200,\x200.3)','legend-color','all','8qwGyHD','append','rgba(0,\x20128,\x200,\x200.7)','trim','classed','search-match','toggle-median-lines','apply','metrics.','each','Show\x20median\x20lines','5,3','.team-label-','</span>','textContent','select-y','none','Escape','open','</span><br/>','select-league','value','tooltip','clientWidth','3933034oKXKwp','link','node','data-value','setAttribute','transition','x-metric-trigger','axisLeft','bottom','legend-item','team-label-','tickSize','slice','metrics','mouseover','toLowerCase','.performance-label','Goals\x20per\x2090','showMedianLines','team-label\x20','rgba(70,\x20130,\x20180,\x200.7)','target','pageX','transparent','normalize','getBBox','property'];_0x207f=function(){return _0x4e9d59;};return _0x207f();}var rows=csvData[_0xbcd8be(0x2c6)]()[_0xbcd8be(0x294)]('\x0a'),header=rows[0x0][_0xbcd8be(0x294)](','),data=rows[_0xbcd8be(0x1ee)](0x1)[_0xbcd8be(0x271)](function(_0x1758d9){var _0x37d85a=_0xbcd8be;return _0x1758d9['split'](',')[_0x37d85a(0x271)](function(_0x906e43,_0x583a90){return _0x583a90>=0x3?parseFloat(_0x906e43):_0x906e43;});}),margin={'top':0x0,'right':0x0,'bottom':0x0,'left':0x0},width=0x43a-margin['left']-margin[_0xbcd8be(0x251)],height=0x302-margin[_0xbcd8be(0x29e)]-margin['bottom'],leagueColors={'Premier\x20League':_0xbcd8be(0x221),'La\x20Liga':_0xbcd8be(0x2a8),'Bundesliga':'rgba(255,\x20255,\x200,\x200.7)','Serie\x20A':_0xbcd8be(0x2c5),'Ligue\x201':_0xbcd8be(0x272),'Eredivisie':_0xbcd8be(0x27d),'Primeira\x20Liga':'rgba(238,\x20130,\x20238,\x200.7)'};function getLeagueColor(_0x520aae){var _0x4acb97=_0xbcd8be;return leagueColors[_0x520aae]||_0x4acb97(0x221);}function updateChartDimensions(){var _0x3d8a4d=_0xbcd8be,_0x36aacc=document[_0x3d8a4d(0x263)](_0x3d8a4d(0x203))[_0x3d8a4d(0x1e1)],_0x3337b2=window[_0x3d8a4d(0x24f)]*0.7,_0x22280b=0x1e,_0x80a86b=Math[_0x3d8a4d(0x24c)](0x43a,_0x36aacc-_0x22280b*0x2),_0x103a17=window[_0x3d8a4d(0x261)]/window['innerHeight']<0x1;if(_0x103a17){margin={'top':0x28,'right':0x1e,'bottom':0x3c,'left':0x4b};var _0x128bda=1.4,_0x6da713=Math[_0x3d8a4d(0x24c)](_0x3337b2,_0x80a86b*_0x128bda);_0x6da713=Math['max'](_0x6da713,0x1f4);}else{margin={'top':0x28,'right':0x1e,'bottom':0x3c,'left':0x4f};var _0x5c8e74=0.7,_0x6da713=_0x80a86b*_0x5c8e74;}width=_0x80a86b-margin[_0x3d8a4d(0x250)]-margin[_0x3d8a4d(0x251)],height=_0x6da713-margin['top']-margin[_0x3d8a4d(0x1ea)],d3[_0x3d8a4d(0x247)](_0x3d8a4d(0x216))[_0x3d8a4d(0x273)]('width',_0x80a86b)[_0x3d8a4d(0x273)](_0x3d8a4d(0x267),_0x6da713),document[_0x3d8a4d(0x263)](_0x3d8a4d(0x207))['style'][_0x3d8a4d(0x267)]=_0x6da713+'px';}window[_0xbcd8be(0x26f)](_0xbcd8be(0x262),function(){updateChartDimensions(),requestAnimationFrame(function(){updateChart();});}),updateChartDimensions();function debounce(_0x570f10,_0x2cb4ea){let _0x3eb162;return function(){const _0x4e379b=this,_0x40db17=arguments;clearTimeout(_0x3eb162),_0x3eb162=setTimeout(function(){var _0x5bf4cb=_0x3b9a;_0x570f10[_0x5bf4cb(0x1d1)](_0x4e379b,_0x40db17);},_0x2cb4ea);};}var prevWindowWidth=window[_0xbcd8be(0x261)],prevWindowHeight=window[_0xbcd8be(0x24f)];window[_0xbcd8be(0x26f)]('resize',debounce(function(){var _0x34eb1e=_0xbcd8be,_0x26f943=prevWindowWidth/prevWindowHeight<0x1,_0x486e63=window[_0x34eb1e(0x261)]/window[_0x34eb1e(0x24f)]<0x1;prevWindowWidth=window[_0x34eb1e(0x261)],prevWindowHeight=window['innerHeight'],requestAnimationFrame(function(){updateChart();});},0x32));var medianLinesVisible=![],selectX=d3[_0xbcd8be(0x247)](_0xbcd8be(0x206)),selectY=d3[_0xbcd8be(0x247)](_0xbcd8be(0x214)),names=data[_0xbcd8be(0x271)](function(_0x5036c6){return _0x5036c6[0x1];});header['slice'](0x3)[_0xbcd8be(0x27a)](function(_0x2ac489){var _0x54e233=_0xbcd8be;selectX[_0x54e233(0x2c4)](_0x54e233(0x201))[_0x54e233(0x241)](_0x2ac489)[_0x54e233(0x273)](_0x54e233(0x1df),_0x2ac489),selectY[_0x54e233(0x2c4)](_0x54e233(0x201))['text'](_0x2ac489)[_0x54e233(0x273)](_0x54e233(0x1df),_0x2ac489);}),selectX[_0xbcd8be(0x1fc)]('value',header[0x3]),selectY[_0xbcd8be(0x1fc)](_0xbcd8be(0x1df),header[0x4]);var svg=d3[_0xbcd8be(0x247)]('#scatter-plot')[_0xbcd8be(0x273)](_0xbcd8be(0x22a),width+margin[_0xbcd8be(0x250)]+margin['right'])[_0xbcd8be(0x273)](_0xbcd8be(0x267),height+margin[_0xbcd8be(0x29e)]+margin[_0xbcd8be(0x1ea)])[_0xbcd8be(0x2c4)]('g')[_0xbcd8be(0x273)](_0xbcd8be(0x25c),_0xbcd8be(0x209)+margin[_0xbcd8be(0x250)]+','+margin['top']+')'),xMetric=header[0x3],yMetric=header[0x4],xScale=d3['scaleLinear']()[_0xbcd8be(0x23e)]([0x0,width]),yScale=d3[_0xbcd8be(0x274)]()[_0xbcd8be(0x23e)]([height,0x0]),xAxis=d3[_0xbcd8be(0x2b2)](xScale)[_0xbcd8be(0x1ed)](0x0),yAxis=d3[_0xbcd8be(0x1e9)](yScale)['tickSize'](0x0),gXAxis=svg[_0xbcd8be(0x2c4)]('g')[_0xbcd8be(0x273)](_0xbcd8be(0x21c),_0xbcd8be(0x21f))['attr']('transform','translate(0,'+height+')'),gYAxis=svg['append']('g')['attr'](_0xbcd8be(0x21c),_0xbcd8be(0x242)),xLabel=svg[_0xbcd8be(0x2c4)](_0xbcd8be(0x241))[_0xbcd8be(0x273)]('class',_0xbcd8be(0x27b))['attr'](_0xbcd8be(0x2a9),_0xbcd8be(0x240))[_0xbcd8be(0x273)]('x',width)[_0xbcd8be(0x273)]('y',height+0x23)[_0xbcd8be(0x285)](_0xbcd8be(0x28e),_0xbcd8be(0x2ab))[_0xbcd8be(0x285)](_0xbcd8be(0x23d),_0xbcd8be(0x228)),yLabel=svg['append']('text')[_0xbcd8be(0x273)](_0xbcd8be(0x21c),_0xbcd8be(0x2a2))['attr'](_0xbcd8be(0x2a9),_0xbcd8be(0x240))['attr'](_0xbcd8be(0x25c),_0xbcd8be(0x220))['attr']('y',-0x35)[_0xbcd8be(0x273)]('x',0x0)['style'](_0xbcd8be(0x28e),_0xbcd8be(0x2ab))[_0xbcd8be(0x285)]('font-size',_0xbcd8be(0x228)),tooltip=d3[_0xbcd8be(0x247)]('body')['append'](_0xbcd8be(0x2aa))[_0xbcd8be(0x273)]('class',_0xbcd8be(0x1e0));function isMobileDevice(){var _0x15378c=_0xbcd8be;return window[_0x15378c(0x261)]<=0x300;}function positionTooltip(_0xd188cc,_0x2ef97b){var _0x226bc3=_0xbcd8be;const _0x5d6c04=_0x2ef97b[_0x226bc3(0x1e4)]();if(!_0x5d6c04)return{'left':0x0,'top':0x0};const _0x4c4260=_0x5d6c04[_0x226bc3(0x2b3)](),_0x241c39=window[_0x226bc3(0x261)],_0x302d68=window[_0x226bc3(0x24f)];let _0x9108fe=_0xd188cc['pageX']+0xa,_0x9b6bca=_0xd188cc[_0x226bc3(0x200)]-0x1c;return _0x9108fe+_0x4c4260[_0x226bc3(0x22a)]>_0x241c39-0xa&&(_0x9108fe=_0xd188cc[_0x226bc3(0x1f8)]-_0x4c4260[_0x226bc3(0x22a)]-0xa),_0x9b6bca+_0x4c4260[_0x226bc3(0x267)]>_0x302d68-0xa&&(_0x9b6bca=_0xd188cc[_0x226bc3(0x200)]-_0x4c4260['height']-0xa),_0x9108fe=Math['max'](0xa,_0x9108fe),_0x9b6bca=Math[_0x226bc3(0x29a)](0xa,_0x9b6bca),{'left':_0x9108fe,'top':_0x9b6bca};}var clickedCircles=[],filteredData=data,filteredNames=names,circles;function updateChart(){var _0x2f5fca=_0xbcd8be;updateChartDimensions(),d3[_0x2f5fca(0x247)](_0x2f5fca(0x216))['attr'](_0x2f5fca(0x22a),width+margin[_0x2f5fca(0x250)]+margin[_0x2f5fca(0x251)])[_0x2f5fca(0x273)]('height',height+margin[_0x2f5fca(0x29e)]+margin['bottom']),gXAxis[_0x2f5fca(0x273)](_0x2f5fca(0x25c),_0x2f5fca(0x205)+height+')'),xLabel['attr']('x',width)[_0x2f5fca(0x273)]('y',height+0x23),yLabel[_0x2f5fca(0x273)]('x',0x0);const _0x1b4810=document[_0x2f5fca(0x29c)][_0x2f5fca(0x2b1)][_0x2f5fca(0x289)](_0x2f5fca(0x229));var _0x8bb56e=document[_0x2f5fca(0x264)](_0x2f5fca(0x1de))['value'];if(_0x8bb56e==='all')filteredData=data;else _0x8bb56e===_0x2f5fca(0x279)?filteredData=data[_0x2f5fca(0x298)](function(_0x1c7d9b){var _0xfa697=_0x2f5fca;return _0x1c7d9b[0x2]===_0xfa697(0x291)||_0x1c7d9b[0x2]===_0xfa697(0x278)||_0x1c7d9b[0x2]==='Bundesliga'||_0x1c7d9b[0x2]===_0xfa697(0x287)||_0x1c7d9b[0x2]===_0xfa697(0x21a);}):filteredData=data['filter'](function(_0x3ba6f5){return _0x3ba6f5[0x2]===_0x8bb56e;});filteredNames=filteredData[_0x2f5fca(0x271)](function(_0x5022a4){return _0x5022a4[0x1];}),xMetric=selectX[_0x2f5fca(0x1fc)](_0x2f5fca(0x1df)),yMetric=selectY['property'](_0x2f5fca(0x1df)),xScale[_0x2f5fca(0x23e)]([0x0,width])['domain']((function(){var _0x527894=_0x2f5fca;const _0x372955=d3[_0x527894(0x24c)](filteredData,_0x443feb=>_0x443feb[header[_0x527894(0x24b)](xMetric)]),_0x2c8ec8=d3[_0x527894(0x29a)](filteredData,_0x4c6b2d=>_0x4c6b2d[header[_0x527894(0x24b)](xMetric)]),_0x4b88a2=_0x2c8ec8-_0x372955,_0x4648e6=_0x4b88a2*0.1;return[_0x372955-_0x4648e6,_0x2c8ec8+_0x4648e6];}())),yScale['range']([height,0x0])['domain']((function(){var _0x3b8bf2=_0x2f5fca;const _0x27dad9=d3[_0x3b8bf2(0x24c)](filteredData,_0x1c4cce=>_0x1c4cce[header[_0x3b8bf2(0x24b)](yMetric)]),_0x15a730=d3['max'](filteredData,_0x540136=>_0x540136[header[_0x3b8bf2(0x24b)](yMetric)]),_0x64dd6a=_0x15a730-_0x27dad9,_0x28b904=_0x64dd6a*0.1;return[_0x27dad9-_0x28b904,_0x15a730+_0x28b904];}())),gXAxis[_0x2f5fca(0x2a4)](d3['axisBottom'](xScale)[_0x2f5fca(0x1ed)](0x0)),gYAxis[_0x2f5fca(0x2a4)](d3['axisLeft'](yScale)[_0x2f5fca(0x1ed)](0x0));const _0x18c888='metrics.'+xMetric[_0x2f5fca(0x1f1)]()[_0x2f5fca(0x224)](/ /g,'-')[_0x2f5fca(0x224)](/%/g,_0x2f5fca(0x218)),_0xb184e8=_0x2f5fca(0x1d2)+yMetric[_0x2f5fca(0x1f1)]()['replace'](/ /g,'-')[_0x2f5fca(0x224)](/%/g,'pct');xLabel['attr'](_0x2f5fca(0x2b5),_0x18c888),yLabel['attr'](_0x2f5fca(0x2b5),_0xb184e8);if(window[_0x2f5fca(0x238)]&&window[_0x2f5fca(0x238)][_0x2f5fca(0x1ef)]){const _0x509240=xMetric['toLowerCase']()[_0x2f5fca(0x224)](/ /g,'-')['replace'](/%/g,'pct'),_0x38ca68=yMetric[_0x2f5fca(0x1f1)]()[_0x2f5fca(0x224)](/ /g,'-')[_0x2f5fca(0x224)](/%/g,_0x2f5fca(0x218)),_0x3b5317=window[_0x2f5fca(0x238)][_0x2f5fca(0x1ef)][_0x509240],_0x4c7a44=window[_0x2f5fca(0x238)]['metrics'][_0x38ca68];xLabel['text'](_0x3b5317||xMetric),yLabel[_0x2f5fca(0x241)](_0x4c7a44||yMetric);}else xLabel[_0x2f5fca(0x241)](xMetric),yLabel[_0x2f5fca(0x241)](yMetric);svg['selectAll'](_0x2f5fca(0x1fd))[_0x2f5fca(0x27e)](),svg[_0x2f5fca(0x2a7)](_0x2f5fca(0x243))[_0x2f5fca(0x27e)](),svg[_0x2f5fca(0x2a7)](_0x2f5fca(0x27f))[_0x2f5fca(0x27e)](),svg[_0x2f5fca(0x2a7)](_0x2f5fca(0x22c))[_0x2f5fca(0x27e)](),svg[_0x2f5fca(0x2a7)](_0x2f5fca(0x222))[_0x2f5fca(0x27e)](),svg[_0x2f5fca(0x2a7)]('.xy-line-label-bg')[_0x2f5fca(0x27e)](),svg[_0x2f5fca(0x2a7)](_0x2f5fca(0x1f2))[_0x2f5fca(0x27e)](),svg['selectAll'](_0x2f5fca(0x28d))[_0x2f5fca(0x27e)](),svg[_0x2f5fca(0x2a7)]('marker#arrow-over,\x20marker#arrow-under')[_0x2f5fca(0x27e)](),svg[_0x2f5fca(0x2a7)](_0x2f5fca(0x281))['remove'](),svg[_0x2f5fca(0x2a7)]('.median-line')[_0x2f5fca(0x27e)]();if(xMetric===_0x2f5fca(0x2bf)&&yMetric===_0x2f5fca(0x1f3)||xMetric===_0x2f5fca(0x1f3)&&yMetric==='xG\x20per\x2090'){var _0x4121cd=null,_0x25e521=d3[_0x2f5fca(0x24c)](filteredData,function(_0x542f23){var _0xe9379c=_0x2f5fca;return _0x542f23[header[_0xe9379c(0x24b)](xMetric)];}),_0xeb5e57=d3[_0x2f5fca(0x29a)](filteredData,function(_0x5a14f9){var _0x466de7=_0x2f5fca;return _0x5a14f9[header[_0x466de7(0x24b)](xMetric)];}),_0x275250=d3[_0x2f5fca(0x24c)](filteredData,function(_0xc8237b){var _0x279128=_0x2f5fca;return _0xc8237b[header[_0x279128(0x24b)](yMetric)];}),_0x46fe97=d3[_0x2f5fca(0x29a)](filteredData,function(_0x4921b9){var _0x3140ff=_0x2f5fca;return _0x4921b9[header[_0x3140ff(0x24b)](yMetric)];}),_0x36a7d5=Math[_0x2f5fca(0x24c)](_0xeb5e57,_0x46fe97),_0x5f0563=Math[_0x2f5fca(0x29a)](_0x25e521,_0x275250);svg['append']('line')[_0x2f5fca(0x273)](_0x2f5fca(0x21c),_0x2f5fca(0x22d))[_0x2f5fca(0x273)]('x1',xScale(_0x5f0563))[_0x2f5fca(0x273)]('y1',yScale(_0x5f0563))[_0x2f5fca(0x273)]('x2',xScale(_0x36a7d5))[_0x2f5fca(0x273)]('y2',yScale(_0x36a7d5))[_0x2f5fca(0x285)](_0x2f5fca(0x2a5),_0x2f5fca(0x2bc))[_0x2f5fca(0x285)]('stroke-width','2')[_0x2f5fca(0x285)](_0x2f5fca(0x295),_0x2f5fca(0x1d5)),svg[_0x2f5fca(0x2c4)](_0x2f5fca(0x23b))[_0x2f5fca(0x273)]('class',_0x2f5fca(0x219))['attr']('x1',xScale(_0x5f0563))['attr']('y1',yScale(_0x5f0563))[_0x2f5fca(0x273)]('x2',xScale(_0x36a7d5))[_0x2f5fca(0x273)]('y2',yScale(_0x36a7d5))['style']('stroke',_0x2f5fca(0x1f9))[_0x2f5fca(0x285)](_0x2f5fca(0x253),'15')[_0x2f5fca(0x285)]('cursor','help')['on'](_0x2f5fca(0x1f0),function(){var _0x53d225=_0x2f5fca;_0x4121cd&&clearTimeout(_0x4121cd);var _0x4643e4=d3['event'][_0x53d225(0x1f8)],_0x62714c=d3[_0x53d225(0x284)]['pageY'];_0x4121cd=setTimeout(function(){var _0x5f2e2d=_0x53d225;tooltip[_0x5f2e2d(0x1e7)]()[_0x5f2e2d(0x212)](0xc8)[_0x5f2e2d(0x285)]('opacity',0.9);var _0x41aad7=_0x5f2e2d(0x265)+getTranslation(_0x5f2e2d(0x266),'G\x20=\x20xG\x20Line')+_0x5f2e2d(0x226);xMetric===_0x5f2e2d(0x2bf)&&yMetric===_0x5f2e2d(0x1f3)?_0x41aad7+=_0x5f2e2d(0x232)+getTranslation(_0x5f2e2d(0x21d),_0x5f2e2d(0x283))+_0x5f2e2d(0x1dd)+_0x5f2e2d(0x232)+getTranslation('tooltip.xg-line-below','Teams\x20below\x20this\x20line\x20are\x20scoring\x20fewer\x20goals\x20than\x20expected.')+_0x5f2e2d(0x1d7):_0x41aad7+='<span>'+getTranslation(_0x5f2e2d(0x2bb),_0x5f2e2d(0x269))+_0x5f2e2d(0x1dd)+'<span>'+getTranslation('tooltip.xg-line-left','Teams\x20left\x20of\x20this\x20line\x20are\x20scoring\x20fewer\x20goals\x20than\x20expected.')+'</span>',tooltip['html'](_0x41aad7)[_0x5f2e2d(0x285)]('left',_0x4643e4+0xa+'px')[_0x5f2e2d(0x285)](_0x5f2e2d(0x29e),_0x62714c-0x1c+'px');},0x258);})['on']('mouseout',function(){var _0x2df175=_0x2f5fca;_0x4121cd&&(clearTimeout(_0x4121cd),_0x4121cd=null),tooltip[_0x2df175(0x1e7)]()['duration'](0x1f4)[_0x2df175(0x285)](_0x2df175(0x246),0x0);});}if(medianLinesVisible){var _0x542eda=d3['median'](filteredData,function(_0x62ea9d){var _0x3a0b57=_0x2f5fca;return _0x62ea9d[header[_0x3a0b57(0x24b)](xMetric)];}),_0x1868da=d3[_0x2f5fca(0x2ad)](filteredData,function(_0x1534a5){var _0x2a80eb=_0x2f5fca;return _0x1534a5[header[_0x2a80eb(0x24b)](yMetric)];});svg[_0x2f5fca(0x2c4)](_0x2f5fca(0x23b))[_0x2f5fca(0x273)]('class',_0x2f5fca(0x2ba))['attr']('x1',xScale(_0x542eda))[_0x2f5fca(0x273)]('y1',0x0)[_0x2f5fca(0x273)]('x2',xScale(_0x542eda))['attr']('y2',height)[_0x2f5fca(0x285)]('stroke','rgba(0,\x200,\x200,\x200.3)')['style'](_0x2f5fca(0x295),'4'),svg[_0x2f5fca(0x2c4)]('line')[_0x2f5fca(0x273)]('class',_0x2f5fca(0x2ba))[_0x2f5fca(0x273)]('x1',0x0)[_0x2f5fca(0x273)]('y1',yScale(_0x1868da))['attr']('x2',width)[_0x2f5fca(0x273)]('y2',yScale(_0x1868da))[_0x2f5fca(0x285)](_0x2f5fca(0x2a5),_0x2f5fca(0x2c0))[_0x2f5fca(0x285)]('stroke-dasharray','4');}circles=svg[_0x2f5fca(0x2a7)](_0x2f5fca(0x1fd))[_0x2f5fca(0x2bd)](filteredData)[_0x2f5fca(0x280)]()['append'](_0x2f5fca(0x1fd))['attr']('cx',function(_0x4637c5){var _0x1f837c=_0x2f5fca;return xScale(_0x4637c5[header[_0x1f837c(0x24b)](xMetric)]);})[_0x2f5fca(0x273)]('cy',function(_0x457396){var _0x1216dc=_0x2f5fca;return yScale(_0x457396[header[_0x1216dc(0x24b)](yMetric)]);})['attr']('r',0x8)[_0x2f5fca(0x285)]('fill',function(_0x484239){var _0x40ea12=_0x2f5fca;if(clickedCircles[_0x40ea12(0x215)](_0x484239[0x1]))return getLeagueColor(_0x484239[0x2]);return _0x40ea12(0x1f6);})[_0x2f5fca(0x285)](_0x2f5fca(0x2a5),function(_0x4f5bc5){var _0x4fb013=_0x2f5fca;return clickedCircles[_0x4fb013(0x215)](_0x4f5bc5[0x1])?_0x4fb013(0x20d):_0x4fb013(0x1da);})['style'](_0x2f5fca(0x253),function(_0xe56136){var _0x148eae=_0x2f5fca;return clickedCircles[_0x148eae(0x215)](_0xe56136[0x1])?0x2:0x0;})[_0x2f5fca(0x285)]('cursor','pointer')['on'](_0x2f5fca(0x1f0),function(_0xa9c594){var _0x1cd160=_0x2f5fca;d3[_0x1cd160(0x247)](this)[_0x1cd160(0x1e7)]()[_0x1cd160(0x212)](0xc8)[_0x1cd160(0x273)]('r',0xa)['style'](_0x1cd160(0x248),getLeagueColor(_0xa9c594[0x2])),tooltip[_0x1cd160(0x1e7)]()[_0x1cd160(0x212)](0xc8)['style']('opacity',0.9);const _0xbb23ad=_0x1cd160(0x1d2)+xMetric[_0x1cd160(0x1f1)]()['replace'](/ /g,'-')[_0x1cd160(0x224)](/%/g,'pct'),_0x4aaf61=_0x1cd160(0x1d2)+yMetric['toLowerCase']()[_0x1cd160(0x224)](/ /g,'-')[_0x1cd160(0x224)](/%/g,_0x1cd160(0x218)),_0x4e09ec=getTranslation(_0xbb23ad,xMetric),_0x408667=getTranslation(_0x4aaf61,yMetric);tooltip[_0x1cd160(0x210)](_0x1cd160(0x265)+_0xa9c594[0x1]+_0x1cd160(0x226)+_0x4e09ec+':\x20'+_0xa9c594[header[_0x1cd160(0x24b)](xMetric)]['toFixed'](0x2)+'<br/>'+_0x408667+':\x20'+_0xa9c594[header[_0x1cd160(0x24b)](yMetric)][_0x1cd160(0x2b4)](0x2));const _0x2c5e1b=tooltip[_0x1cd160(0x1e4)]();if(_0x2c5e1b){const _0x4c40bd=_0x2c5e1b['getBoundingClientRect'](),_0x2d0dda=window[_0x1cd160(0x261)],_0x1a82c0=window[_0x1cd160(0x24f)];let _0x5ea5aa=d3[_0x1cd160(0x284)][_0x1cd160(0x1f8)]+0xa,_0x5b4ba2=d3[_0x1cd160(0x284)][_0x1cd160(0x200)]-0x1c;_0x5ea5aa+_0x4c40bd[_0x1cd160(0x22a)]>_0x2d0dda-0xa&&(_0x5ea5aa=d3[_0x1cd160(0x284)][_0x1cd160(0x1f8)]-_0x4c40bd[_0x1cd160(0x22a)]-0xa),_0x5b4ba2+_0x4c40bd[_0x1cd160(0x267)]>_0x1a82c0-0xa&&(_0x5b4ba2=d3[_0x1cd160(0x284)][_0x1cd160(0x200)]-_0x4c40bd[_0x1cd160(0x267)]-0xa),_0x5ea5aa=Math[_0x1cd160(0x29a)](0xa,_0x5ea5aa),_0x5b4ba2=Math[_0x1cd160(0x29a)](0xa,_0x5b4ba2),tooltip[_0x1cd160(0x285)](_0x1cd160(0x250),_0x5ea5aa+'px')[_0x1cd160(0x285)](_0x1cd160(0x29e),_0x5b4ba2+'px');}else tooltip[_0x1cd160(0x285)]('left',d3[_0x1cd160(0x284)]['pageX']+0xa+'px')[_0x1cd160(0x285)](_0x1cd160(0x29e),d3[_0x1cd160(0x284)][_0x1cd160(0x200)]-0x1c+'px');window[_0x1cd160(0x261)]<=0x300&&setTimeout(function(){var _0x115dce=_0x1cd160;tooltip['transition']()['duration'](0xc8)['style'](_0x115dce(0x246),0x0);},0x3e8);})['on'](_0x2f5fca(0x217),function(_0x49e37e){var _0x56800c=_0x2f5fca;window[_0x56800c(0x261)]>0x300&&tooltip['transition']()[_0x56800c(0x212)](0x1f4)[_0x56800c(0x285)](_0x56800c(0x246),0x0);var _0x1390eb=clickedCircles[_0x56800c(0x215)](_0x49e37e[0x1]);d3[_0x56800c(0x247)](this)[_0x56800c(0x1e7)]()[_0x56800c(0x212)](0xc8)[_0x56800c(0x273)]('r',0x8)[_0x56800c(0x285)](_0x56800c(0x248),function(){var _0x3fb221=_0x56800c;return _0x1390eb?getLeagueColor(_0x49e37e[0x2]):_0x3fb221(0x1f6);});})['on'](_0x2f5fca(0x237),function(_0x2081ad){var _0x325d23=_0x2f5fca,_0x553367=d3[_0x325d23(0x247)](this)['classed'](_0x325d23(0x2c8));_0x553367&&resetSearch();var _0x3b9009=clickedCircles[_0x325d23(0x24b)](_0x2081ad[0x1]);_0x3b9009===-0x1?(clickedCircles[_0x325d23(0x23a)](_0x2081ad[0x1]),d3['select'](this)[_0x325d23(0x285)](_0x325d23(0x248),getLeagueColor(_0x2081ad[0x2]))[_0x325d23(0x285)]('stroke',_0x325d23(0x20d))[_0x325d23(0x285)](_0x325d23(0x253),0x2),addTeamLabel(_0x2081ad)):(clickedCircles[_0x325d23(0x259)](_0x3b9009,0x1),d3[_0x325d23(0x247)](this)[_0x325d23(0x285)](_0x325d23(0x248),'rgba(70,\x20130,\x20180,\x200.7)')[_0x325d23(0x285)](_0x325d23(0x2a5),_0x325d23(0x1da)),svg[_0x325d23(0x2a7)](_0x325d23(0x1d6)+_0x2081ad[0x1][_0x325d23(0x224)](/\s+/g,'-')[_0x325d23(0x1f1)]())[_0x325d23(0x27e)]());updateSelectAllButtonText();var _0x243be0=document[_0x325d23(0x264)](_0x325d23(0x1de))[_0x325d23(0x1df)];updateLeagueLegend(_0x243be0);}),clickedCircles[_0x2f5fca(0x27a)](function(_0x508fd1){var _0x3f1dc7=_0x2f5fca,_0x33735b=filteredData[_0x3f1dc7(0x2be)](function(_0x1cec5c){return _0x1cec5c[0x1]===_0x508fd1;});_0x33735b&&addTeamLabel(_0x33735b);}),updateSelectAllButtonText(),updateLeagueLegend(_0x8bb56e);}function updateSelectAllButtonText(){var _0x3a7d64=_0xbcd8be,_0x1415b3=document[_0x3a7d64(0x264)](_0x3a7d64(0x236)),_0x31723b=document[_0x3a7d64(0x264)]('select-all-tooltip'),_0x5d7a35=filteredData[_0x3a7d64(0x28a)](function(_0x47c2f5){var _0x561b05=_0x3a7d64;return clickedCircles[_0x561b05(0x215)](_0x47c2f5[0x1]);});_0x5d7a35?(_0x1415b3['className']=_0x3a7d64(0x24d),_0x31723b&&(window[_0x3a7d64(0x238)]&&window[_0x3a7d64(0x238)][_0x3a7d64(0x1e0)]?_0x31723b['textContent']=window[_0x3a7d64(0x238)][_0x3a7d64(0x1e0)][_0x3a7d64(0x21b)]||_0x3a7d64(0x2ac):_0x31723b[_0x3a7d64(0x1d8)]=_0x3a7d64(0x2ac))):(_0x1415b3[_0x3a7d64(0x286)]=_0x3a7d64(0x276),_0x31723b&&(window['currentTranslations']&&window['currentTranslations']['tooltip']?_0x31723b['textContent']=window['currentTranslations'][_0x3a7d64(0x1e0)]['selectAll']||_0x3a7d64(0x233):_0x31723b['textContent']=_0x3a7d64(0x233)));}selectX['on'](_0xbcd8be(0x20a),updateChart),selectY['on']('change',updateChart);function removeSpecialCharsAndDiacritics(_0x4a7ca6){var _0x5aeb00=_0xbcd8be;if(!_0x4a7ca6)return'';return _0x4a7ca6[_0x5aeb00(0x1fa)](_0x5aeb00(0x22f))[_0x5aeb00(0x224)](/[\u0300-\u036f]/g,'')['replace'](/Ø/g,'O')[_0x5aeb00(0x224)](/ø/g,'o');}var searchBar=document[_0xbcd8be(0x264)]('search-bar');searchBar[_0xbcd8be(0x26f)](_0xbcd8be(0x26d),function(){var _0x52290f=_0xbcd8be,_0x5da2f9=searchBar[_0x52290f(0x1df)][_0x52290f(0x1f1)]();if(_0x5da2f9===''){resetSearch();return;}var _0x4e09d5=removeSpecialCharsAndDiacritics(_0x5da2f9);svg[_0x52290f(0x2a7)]('circle')[_0x52290f(0x2c7)](_0x52290f(0x2c8),![])[_0x52290f(0x285)](_0x52290f(0x248),function(_0x138357){var _0x3e40e9=_0x52290f;return clickedCircles['includes'](_0x138357[0x1])?getLeagueColor(_0x138357[0x2]):_0x3e40e9(0x1f6);})[_0x52290f(0x285)](_0x52290f(0x2a5),function(_0x441e06){var _0x44b4cc=_0x52290f;return clickedCircles[_0x44b4cc(0x215)](_0x441e06[0x1])?_0x44b4cc(0x20d):_0x44b4cc(0x1da);})['style'](_0x52290f(0x253),function(_0x36f8f1){var _0x8e9fc3=_0x52290f;return clickedCircles[_0x8e9fc3(0x215)](_0x36f8f1[0x1])?0x2:0x0;})[_0x52290f(0x285)](_0x52290f(0x298),_0x52290f(0x1da))['each'](function(){var _0x4a1bb3=_0x52290f;d3['select'](this)[_0x4a1bb3(0x285)]('r',null);}),svg['selectAll']('.team-label')[_0x52290f(0x2c7)](_0x52290f(0x2c8),![])[_0x52290f(0x2c7)](_0x52290f(0x258),![]);var _0xf3c35a=[];svg[_0x52290f(0x2a7)](_0x52290f(0x1fd))[_0x52290f(0x298)](function(_0x514dfe){var _0x4c5e8b=_0x52290f,_0x4111a5=_0x514dfe[0x1][_0x4c5e8b(0x1f1)](),_0x1537f1=removeSpecialCharsAndDiacritics(_0x4111a5),_0x21ad4a=_0x4111a5[_0x4c5e8b(0x215)](_0x5da2f9)||_0x1537f1[_0x4c5e8b(0x215)](_0x4e09d5);return _0x21ad4a&&_0xf3c35a[_0x4c5e8b(0x23a)](_0x514dfe[0x1]),_0x21ad4a;})[_0x52290f(0x2c7)](_0x52290f(0x2c8),!![])[_0x52290f(0x1d3)](function(){var _0x228eaa=_0x52290f;this[_0x228eaa(0x204)][_0x228eaa(0x1fe)](this);}),_0xf3c35a[_0x52290f(0x25b)]>0x0?(svg['selectAll']('.team-label')[_0x52290f(0x2c7)](_0x52290f(0x258),!![]),svg[_0x52290f(0x2a7)](_0x52290f(0x243))[_0x52290f(0x298)](function(){var _0x56c946=_0x52290f,_0xc55fd8=d3['select'](this)[_0x56c946(0x241)]();return _0xf3c35a[_0x56c946(0x215)](_0xc55fd8);})['classed'](_0x52290f(0x2c8),!![])[_0x52290f(0x2c7)]('search-dimmed',![])[_0x52290f(0x1d3)](function(){var _0x1cb0e2=_0x52290f;this[_0x1cb0e2(0x204)]['appendChild'](this);}),_0xf3c35a['forEach'](function(_0x5ebc05){var _0x2b1770=_0x52290f,_0x361673='team-label-'+_0x5ebc05[_0x2b1770(0x224)](/\s+/g,'-')[_0x2b1770(0x1f1)]();if(svg[_0x2b1770(0x247)]('.'+_0x361673)['size']()===0x0){var _0x5d6577=filteredData[_0x2b1770(0x2be)](function(_0x4c56cc){return _0x4c56cc[0x1]===_0x5ebc05;});_0x5d6577&&(addTeamLabel(_0x5d6577),svg['select']('.'+_0x361673)[_0x2b1770(0x2c7)](_0x2b1770(0x2c8),!![]));}})):(svg['selectAll'](_0x52290f(0x243))[_0x52290f(0x1d3)](function(){var _0x1915a1=_0x52290f,_0x1aab0=d3['select'](this),_0x235d12=_0x1aab0[_0x1915a1(0x241)]();!clickedCircles['includes'](_0x235d12)&&_0x1aab0[_0x1915a1(0x27e)]();}),svg['selectAll']('circle')[_0x52290f(0x285)](_0x52290f(0x248),function(_0x4b2eb7){var _0x4c9ebf=_0x52290f;return clickedCircles[_0x4c9ebf(0x215)](_0x4b2eb7[0x1])?getLeagueColor(_0x4b2eb7[0x2]):'rgba(70,\x20130,\x20180,\x200.7)';})['style'](_0x52290f(0x2a5),function(_0x5bb3e0){var _0x435eb0=_0x52290f;return clickedCircles['includes'](_0x5bb3e0[0x1])?_0x435eb0(0x20d):_0x435eb0(0x1da);})[_0x52290f(0x285)]('stroke-width',function(_0x321209){var _0x3464c5=_0x52290f;return clickedCircles[_0x3464c5(0x215)](_0x321209[0x1])?0x2:0x0;}));});function resetSearch(){var _0xe3de51=_0xbcd8be;searchBar[_0xe3de51(0x1df)]='',svg[_0xe3de51(0x2a7)]('circle')[_0xe3de51(0x2c7)]('search-match',![])['style']('fill',function(_0x24e8a9){var _0x489091=_0xe3de51;return clickedCircles['includes'](_0x24e8a9[0x1])?getLeagueColor(_0x24e8a9[0x2]):_0x489091(0x1f6);})[_0xe3de51(0x285)]('stroke',function(_0x25982d){var _0x48fe8b=_0xe3de51;return clickedCircles['includes'](_0x25982d[0x1])?_0x48fe8b(0x20d):_0x48fe8b(0x1da);})[_0xe3de51(0x285)](_0xe3de51(0x253),function(_0x5e91b5){var _0x2854ca=_0xe3de51;return clickedCircles[_0x2854ca(0x215)](_0x5e91b5[0x1])?0x2:0x0;})['style'](_0xe3de51(0x298),'none')['each'](function(){var _0x5b80ce=_0xe3de51;d3[_0x5b80ce(0x247)](this)[_0x5b80ce(0x285)]('r',null),d3[_0x5b80ce(0x247)](this)['interrupt']();}),svg[_0xe3de51(0x2a7)](_0xe3de51(0x243))[_0xe3de51(0x2c7)](_0xe3de51(0x2c8),![])[_0xe3de51(0x2c7)]('search-dimmed',![])['each'](function(){var _0x2299f2=_0xe3de51;d3[_0x2299f2(0x247)](this)[_0x2299f2(0x25f)]();}),svg['selectAll'](_0xe3de51(0x243))[_0xe3de51(0x1d3)](function(){var _0xef9867=_0xe3de51,_0x40b0e6=d3['select'](this),_0x378a3d=_0x40b0e6['text']();!clickedCircles[_0xef9867(0x215)](_0x378a3d)&&_0x40b0e6[_0xef9867(0x27e)]();});}var toggleButton=document[_0xbcd8be(0x264)](_0xbcd8be(0x1d0));toggleButton[_0xbcd8be(0x26f)](_0xbcd8be(0x237),function(){var _0x3c77bd=_0xbcd8be;medianLinesVisible=!medianLinesVisible,updateChart();const _0x36b7d9=document[_0x3c77bd(0x264)](_0x3c77bd(0x2a6));window[_0x3c77bd(0x238)]&&window[_0x3c77bd(0x238)][_0x3c77bd(0x1e0)]?_0x36b7d9[_0x3c77bd(0x1d8)]=medianLinesVisible?window[_0x3c77bd(0x238)][_0x3c77bd(0x1e0)][_0x3c77bd(0x213)]||_0x3c77bd(0x244):window['currentTranslations'][_0x3c77bd(0x1e0)][_0x3c77bd(0x1f4)]||_0x3c77bd(0x1d4):_0x36b7d9[_0x3c77bd(0x1d8)]=medianLinesVisible?_0x3c77bd(0x244):_0x3c77bd(0x1d4);});function selectAllCircles(){var _0x59aca8=_0xbcd8be,_0x516385=filteredData[_0x59aca8(0x28a)](function(_0x84dca3){var _0x2c47c8=_0x59aca8;return clickedCircles[_0x2c47c8(0x215)](_0x84dca3[0x1]);});_0x516385?(clickedCircles=[],svg[_0x59aca8(0x2a7)](_0x59aca8(0x1fd))[_0x59aca8(0x285)](_0x59aca8(0x248),_0x59aca8(0x1f6))[_0x59aca8(0x285)](_0x59aca8(0x2a5),_0x59aca8(0x1da)),svg[_0x59aca8(0x2a7)]('.team-label')[_0x59aca8(0x27e)]()):(svg['selectAll'](_0x59aca8(0x1fd))['each'](function(_0xbf587d){var _0x4d3125=_0x59aca8;!clickedCircles[_0x4d3125(0x215)](_0xbf587d[0x1])&&(clickedCircles[_0x4d3125(0x23a)](_0xbf587d[0x1]),d3[_0x4d3125(0x247)](this)['style'](_0x4d3125(0x248),getLeagueColor(_0xbf587d[0x2]))[_0x4d3125(0x285)](_0x4d3125(0x2a5),'#000')[_0x4d3125(0x285)](_0x4d3125(0x253),0x2));}),filteredData[_0x59aca8(0x27a)](function(_0x13a35a){addTeamLabel(_0x13a35a);}));updateSelectAllButtonText();var _0x3fd6c3=document[_0x59aca8(0x264)](_0x59aca8(0x1de))['value'];updateLeagueLegend(_0x3fd6c3);}updateChart(),initializeCustomSelectors();function updateLeagueLegend(_0x2117bf){var _0x250b0f=_0xbcd8be,_0x4f9f06=document['getElementById'](_0x250b0f(0x21e));if(_0x2117bf!==_0x250b0f(0x2c2)&&_0x2117bf!==_0x250b0f(0x279)){_0x4f9f06[_0x250b0f(0x285)][_0x250b0f(0x2af)]='none';return;}if(clickedCircles['length']===0x0){_0x4f9f06['style']['display']=_0x250b0f(0x1da);return;}_0x4f9f06[_0x250b0f(0x285)]['display']=_0x250b0f(0x249),_0x4f9f06[_0x250b0f(0x28f)]='';var _0x2ca29d=document[_0x250b0f(0x1ff)](_0x250b0f(0x2aa));_0x2ca29d[_0x250b0f(0x285)][_0x250b0f(0x254)]='bold',_0x2ca29d[_0x250b0f(0x285)][_0x250b0f(0x225)]='15px',_0x4f9f06[_0x250b0f(0x1fe)](_0x2ca29d);var _0x5173df=[];if(_0x2117bf===_0x250b0f(0x2c2))_0x5173df=Object['keys'](leagueColors);else _0x2117bf==='Top\x205\x20Leagues'&&(_0x5173df=['Premier\x20League','La\x20Liga',_0x250b0f(0x268),_0x250b0f(0x287),_0x250b0f(0x21a)]);_0x5173df[_0x250b0f(0x27a)](function(_0x4b0963){var _0x5946df=_0x250b0f,_0x37e62=document[_0x5946df(0x1ff)](_0x5946df(0x2aa));_0x37e62['className']=_0x5946df(0x1eb);var _0x2a11dd=document[_0x5946df(0x1ff)](_0x5946df(0x2aa));_0x2a11dd[_0x5946df(0x286)]=_0x5946df(0x2c1),_0x2a11dd[_0x5946df(0x285)][_0x5946df(0x20e)]=leagueColors[_0x4b0963];var _0x2696b1=document[_0x5946df(0x1ff)]('span');_0x2696b1[_0x5946df(0x1d8)]=_0x4b0963,_0x37e62[_0x5946df(0x1fe)](_0x2a11dd),_0x37e62[_0x5946df(0x1fe)](_0x2696b1),_0x4f9f06[_0x5946df(0x1fe)](_0x37e62);});}const data1=dataLines[_0xbcd8be(0x271)](_0x26d225=>{const [_0x68925d,_0x3eaec0]=_0x26d225['split'](',');return{'name':_0x68925d,'link':_0x3eaec0};});function search2(_0x4d035d){var _0x3d7e58=_0xbcd8be;autocompleteBox[_0x3d7e58(0x28f)]='';const _0x1bc208=_0x4d035d[_0x3d7e58(0x1f1)](),_0x154722=data1['filter'](_0xf69188=>{var _0x32f0b8=_0x3d7e58;const _0x44dfa1=_0xf69188[_0x32f0b8(0x2a0)]?_0xf69188[_0x32f0b8(0x2a0)][_0x32f0b8(0x1f1)]():'';return _0x44dfa1[_0x32f0b8(0x215)](_0x1bc208);});if(_0x154722[_0x3d7e58(0x25b)]===0x0){autocompleteBox[_0x3d7e58(0x285)][_0x3d7e58(0x2af)]=_0x3d7e58(0x1da);return;}_0x154722[_0x3d7e58(0x27a)](_0x30d0cf=>{var _0x107861=_0x3d7e58;if(_0x30d0cf['name']&&_0x30d0cf[_0x107861(0x1e3)]){const _0x54178c=document[_0x107861(0x1ff)](_0x107861(0x2aa)),_0x1a3b58=document[_0x107861(0x1ff)]('a');_0x1a3b58[_0x107861(0x2a3)]=_0x30d0cf['link'],_0x1a3b58['textContent']=_0x30d0cf[_0x107861(0x2a0)],_0x54178c[_0x107861(0x1fe)](_0x1a3b58),autocompleteBox['appendChild'](_0x54178c);}}),autocompleteBox[_0x3d7e58(0x285)][_0x3d7e58(0x2af)]=_0x3d7e58(0x257);}searchInput[_0xbcd8be(0x26f)](_0xbcd8be(0x26d),()=>{var _0x35eb88=_0xbcd8be;const _0x3c6b96=searchInput[_0x35eb88(0x1df)];_0x3c6b96['trim']()===''?autocompleteBox['style'][_0x35eb88(0x2af)]=_0x35eb88(0x1da):search2(_0x3c6b96);});function addTeamLabel(_0x1a60c0){var _0x5729a3=_0xbcd8be,_0x39747b=xScale(_0x1a60c0[header[_0x5729a3(0x24b)](xMetric)]),_0x338c8a=yScale(_0x1a60c0[header['indexOf'](yMetric)]),_0x1f4168=_0x5729a3(0x1ec)+_0x1a60c0[0x1]['replace'](/\s+/g,'-')['toLowerCase']();if(svg[_0x5729a3(0x247)]('.'+_0x1f4168)['size']()>0x0)return;var _0x1d5527=svg[_0x5729a3(0x2c4)](_0x5729a3(0x241))['attr'](_0x5729a3(0x21c),_0x5729a3(0x1f5)+_0x1f4168)['attr']('x',_0x39747b+0xc)['attr']('y',_0x338c8a+0x4)[_0x5729a3(0x241)](_0x1a60c0[0x1])[_0x5729a3(0x285)]('font-family',_0x5729a3(0x2ab))[_0x5729a3(0x285)](_0x5729a3(0x23d),_0x5729a3(0x20f))[_0x5729a3(0x285)](_0x5729a3(0x255),_0x5729a3(0x239))[_0x5729a3(0x285)]('fill','#333')[_0x5729a3(0x273)](_0x5729a3(0x20b),_0x39747b)['attr'](_0x5729a3(0x26a),_0x338c8a)[_0x5729a3(0x273)](_0x5729a3(0x2b8),_0x5729a3(0x275));positionLabelToAvoidOverlap(_0x1d5527,_0x39747b,_0x338c8a);}function positionLabelToAvoidOverlap(_0x26ed29,_0x4ce416,_0x9e2be2){var _0x3a2929=_0xbcd8be;if(_0x26ed29[_0x3a2929(0x273)](_0x3a2929(0x2b8))===_0x3a2929(0x260)){var _0x178e3a=parseFloat(_0x26ed29['attr'](_0x3a2929(0x20b))),_0x4e90fa=parseFloat(_0x26ed29[_0x3a2929(0x273)](_0x3a2929(0x26a))),_0x278ac7=parseFloat(_0x26ed29[_0x3a2929(0x273)]('x')),_0x545e0e=parseFloat(_0x26ed29[_0x3a2929(0x273)]('y')),_0x2b5bb6=Math[_0x3a2929(0x2b0)](Math[_0x3a2929(0x282)](_0x178e3a-_0x4ce416,0x2)+Math['pow'](_0x4e90fa-_0x9e2be2,0x2));if(_0x2b5bb6<0x5){_0x26ed29[_0x3a2929(0x273)](_0x3a2929(0x20b),_0x4ce416)[_0x3a2929(0x273)](_0x3a2929(0x26a),_0x9e2be2);return;}_0x26ed29[_0x3a2929(0x273)]('data-stable-position','false');}var _0x2d32a7=svg[_0x3a2929(0x2a7)](_0x3a2929(0x243))[_0x3a2929(0x298)](function(){var _0x207f47=_0x3a2929;return this!==_0x26ed29[_0x207f47(0x1e4)]();}),_0x3505c3=_0x26ed29[_0x3a2929(0x1e4)]()[_0x3a2929(0x1fb)](),_0x2f27e1=[{'x':_0x4ce416+0xc,'y':_0x9e2be2+0x4},{'x':_0x4ce416+0xc,'y':_0x9e2be2-0xa},{'x':_0x4ce416+0xc,'y':_0x9e2be2+0x12},{'x':_0x4ce416-_0x3505c3[_0x3a2929(0x22a)]-0x5,'y':_0x9e2be2+0x4},{'x':_0x4ce416-_0x3505c3[_0x3a2929(0x22a)]-0x5,'y':_0x9e2be2-0xa},{'x':_0x4ce416-_0x3505c3[_0x3a2929(0x22a)]-0x5,'y':_0x9e2be2+0x12},{'x':_0x4ce416-_0x3505c3[_0x3a2929(0x22a)]/0x2,'y':_0x9e2be2-0xf},{'x':_0x4ce416-_0x3505c3[_0x3a2929(0x22a)]/0x2,'y':_0x9e2be2+0x19}],_0x21fdc8=findPositionWithoutOverlap(_0x2f27e1,_0x2d32a7,_0x3505c3);_0x26ed29[_0x3a2929(0x273)]('x',_0x21fdc8['x'])['attr']('y',_0x21fdc8['y'])[_0x3a2929(0x273)](_0x3a2929(0x20b),_0x4ce416)['attr'](_0x3a2929(0x26a),_0x9e2be2)[_0x3a2929(0x273)](_0x3a2929(0x2b8),_0x3a2929(0x260));}function findPositionWithoutOverlap(_0x53bd0f,_0x4baf20,_0x1b7a48){var _0x52ade8=_0xbcd8be;for(var _0x1123af=0x0;_0x1123af<_0x53bd0f['length'];_0x1123af++){var _0x42bde5=_0x53bd0f[_0x1123af],_0x15ac25=![],_0x536195={'x1':_0x42bde5['x'],'y1':_0x42bde5['y']-_0x1b7a48[_0x52ade8(0x267)],'x2':_0x42bde5['x']+_0x1b7a48['width'],'y2':_0x42bde5['y']+0x5};if(_0x536195['x1']<0x0||_0x536195['x2']>width||_0x536195['y1']<0x0||_0x536195['y2']>height)continue;_0x4baf20['each'](function(){var _0xcd283e=_0x52ade8,_0x148a4a=d3['select'](this)[_0xcd283e(0x1e4)]()[_0xcd283e(0x1fb)](),_0x48c6f3=parseFloat(d3[_0xcd283e(0x247)](this)[_0xcd283e(0x273)]('x')),_0x49fa83=parseFloat(d3[_0xcd283e(0x247)](this)[_0xcd283e(0x273)]('y')),_0x8dc7e5={'x1':_0x48c6f3,'y1':_0x49fa83-_0x148a4a['height'],'x2':_0x48c6f3+_0x148a4a[_0xcd283e(0x22a)],'y2':_0x49fa83+0x5};!(_0x536195['x2']<_0x8dc7e5['x1']||_0x536195['x1']>_0x8dc7e5['x2']||_0x536195['y2']<_0x8dc7e5['y1']||_0x536195['y1']>_0x8dc7e5['y2'])&&(_0x15ac25=!![]);});if(!_0x15ac25)return _0x42bde5;}for(var _0x1123af=0x0;_0x1123af<_0x53bd0f[_0x52ade8(0x25b)];_0x1123af++){var _0x42bde5=_0x53bd0f[_0x1123af],_0x536195={'x1':_0x42bde5['x'],'y1':_0x42bde5['y']-_0x1b7a48[_0x52ade8(0x267)],'x2':_0x42bde5['x']+_0x1b7a48[_0x52ade8(0x22a)],'y2':_0x42bde5['y']+0x5};if(_0x536195['x1']>=0x0&&_0x536195['x2']<=width&&_0x536195['y1']>=0x0&&_0x536195['y2']<=height)return _0x42bde5;}var _0x535397={'x':Math['min'](Math['max'](0x0,_0x53bd0f[0x0]['x']),width-_0x1b7a48[_0x52ade8(0x22a)]),'y':Math[_0x52ade8(0x24c)](Math['max'](_0x1b7a48[_0x52ade8(0x267)],_0x53bd0f[0x0]['y']),height)};return _0x535397;}var originalUpdateChart=updateChart;updateChart=function(){originalUpdateChart(),setTimeout(function(){var _0x44ccaf=_0x3b9a,_0x10eb5c=svg['selectAll'](_0x44ccaf(0x243));_0x10eb5c[_0x44ccaf(0x1d3)](function(){var _0x38b9c4=_0x44ccaf,_0x10e2fb=d3['select'](this),_0x4cb08a=_0x10e2fb[_0x38b9c4(0x241)](),_0x3462c3=filteredData['find'](function(_0x581446){return _0x581446[0x1]===_0x4cb08a;});if(_0x3462c3){var _0x232907=xScale(_0x3462c3[header[_0x38b9c4(0x24b)](xMetric)]),_0x119c11=yScale(_0x3462c3[header[_0x38b9c4(0x24b)](yMetric)]);positionLabelToAvoidOverlap(_0x10e2fb,_0x232907,_0x119c11);}});},0xa);},document['addEventListener'](_0xbcd8be(0x22e),function(){var _0x431a9d=_0xbcd8be;const _0x31fc0f=document[_0x431a9d(0x264)](_0x431a9d(0x2a6));_0x31fc0f[_0x431a9d(0x1d8)]=medianLinesVisible?_0x431a9d(0x244):_0x431a9d(0x1d4);});
+    </script>
+  <script>
+
+        // Global translation helper function
+        function getTranslation(key, defaultText) {
+            // Split the key into parts (e.g., "tooltip.xg-line-title" -> ["tooltip", "xg-line-title"])
+            const keys = key.split('.');
+            
+            // Try to find the translation in the current language
+            try {
+                let currentTranslations = window.currentTranslations || {};
+                for (const k of keys) {
+                    if (currentTranslations && currentTranslations[k]) {
+                        currentTranslations = currentTranslations[k];
+                    } else {
+                        return defaultText;
+                    }
+                }
+                return currentTranslations;
+            } catch (e) {
+                return defaultText;
+            }
+        }
+        
+  
+  function getPreferredLanguage() {
+    // PRIORITY 1: Check URL parameter first
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    if (langParam) {
+      return langParam;
+    }
+    // PRIORITY 2: Check localStorage
+    const storedLang = localStorage.getItem('preferredLanguage');
+    if (storedLang) {
+      return storedLang;
+    }
+    // PRIORITY 3: Use browser language
+    return getBrowserLanguage() || 'en';
+  }
+
+  function getBrowserLanguage() {
+    return navigator.language.slice(0, 2);
+  }
+
+  function applyLanguage(language) {
+    console.log(language);
+
+    if (language === 'en') {
+      return;
+    }
+
+    
+    fetch(`locales/${language}.json`)
+      .then(response => {
+        // Don't throw an error, just return null if response is not OK
+        return response.ok ? response.json() : null;
+      })
+      .then(translations => {
+        // Only proceed if translations exist
+        if (translations) {
+          document.querySelectorAll('[data-i18n]').forEach(element => {
+            const keys = element.getAttribute('data-i18n').split('.');
+            let value = translations;
+            for (const key of keys) {
+              if (value === undefined || value === null) break;
+              value = value[key];
+            }
+            if (value) {
+              if (element.tagName === 'META') {
+              element.setAttribute('content', value);
+          } else if (value.includes('<')) {
+              element.innerHTML = value;
+          } else {
+              element.textContent = value;
+          }          }
+          });
+        }
+      })
+      .catch(() => {
+        // Completely empty catch block to silently ignore any errors
+      });
+  }
+  
+  const preferredLanguage = getPreferredLanguage();
+  applyLanguage(preferredLanguage);
+  
+
+function toggleDarkMode() {
             const body = document.querySelector("body");
             body.classList.toggle("dark-mode");
             
-            // Store the user's preference in local storage
             const isDarkMode = body.classList.contains("dark-mode");
             localStorage.setItem("darkMode", isDarkMode);
             
-            // Update chart to apply dark mode styles to SVG elements
             updateChart();
         }
         
-        // Check if user has a stored preference for dark mode
         document.addEventListener('DOMContentLoaded', function() {
             const storedDarkMode = localStorage.getItem("darkMode");
             
@@ -1354,466 +1414,66 @@ body.dark-mode .language-option {
                 body.classList.add("dark-mode");
             }
             
-            // Add transition for smoother dark mode toggle
-            setTimeout(() => {
-                document.body.style.transition = "background-color 0.3s, color 0.3s";
-                document.querySelectorAll('.chart-wrapper, .header, .btn, input, select, .tooltip, .dark-mode-toggle')
-                    .forEach(el => {
-                        el.style.transition = "background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s";
-                    });
-            }, 100);
+ 
         });
-        
-        // We'll initialize the custom selectors after the data is loaded
-        let initializeCustomSelectors = function() {
-            // League selector functionality
-            const leagueTrigger = document.getElementById('league-select-trigger');
-            const leagueOptions = document.getElementById('league-select-options');
-            const leagueSelect = document.getElementById('select-league');
+
+
+function takeScreenshot() {
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    const svg = document.getElementById('scatter-plot');
+    const svgRect = svg.getBoundingClientRect();
+    
+    // Create a canvas with 2x resolution for higher quality
+    const canvas = document.createElement('canvas');
+    const scale = 2; // Increase resolution by 2x
+    canvas.width = svgRect.width * scale;
+    canvas.height = svgRect.height * scale;
+    
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale); 
+
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    
+    ctx.fillStyle = isDarkMode ? '#2c2c2c' : '#FFFFFF';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    const svgImg = new Image();
+    const svgData = new XMLSerializer().serializeToString(svg);
+    const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+    const url = URL.createObjectURL(svgBlob);
+
+    const watermarkImg = new Image();
+    watermarkImg.crossOrigin = "Anonymous";
+    
+    svgImg.onload = function() {
+        ctx.drawImage(svgImg, 0, 0, svgRect.width, svgRect.height);
+        watermarkImg.onload = function() {
+            ctx.save();
+            ctx.globalAlpha = 0.04;
             
-            setupCustomSelect(leagueTrigger, leagueOptions, leagueSelect);
+            const watermarkWidth = svgRect.width * 0.3;
+            const watermarkHeight = (watermarkWidth / watermarkImg.width) * watermarkImg.height;
+            const x = (svgRect.width - watermarkWidth) / 2;
+            const y = (svgRect.height - watermarkHeight) / 2;
             
-            // X metric selector functionality
-            const xTrigger = document.getElementById('x-metric-trigger');
-            const xOptions = document.getElementById('x-metric-options');
-            const xSelect = document.getElementById('select-x');
+            ctx.drawImage(watermarkImg, x, y, watermarkWidth, watermarkHeight);
+            ctx.restore();
             
-            // Populate X metric options
-            populateMetricOptions(xOptions, header.slice(3), function(option, value) {
-                if (xTrigger.querySelector('span').textContent === value) {
-                    option.classList.add('selected');
-                }
-                if (value === header[3]) { // Default value
-                    option.classList.add('selected');
-                    // Update trigger text
-                    xTrigger.querySelector('span').textContent = value;
-                    const metricKey = value.toLowerCase().replace(/ /g, '-').replace(/%/g, 'pct');
-                    xTrigger.querySelector('span').setAttribute('data-i18n', 'metrics.' + metricKey);
-                }
-            });
-            
-            setupCustomSelect(xTrigger, xOptions, xSelect);
-            
-            // Y metric selector functionality
-            const yTrigger = document.getElementById('y-metric-trigger');
-            const yOptions = document.getElementById('y-metric-options');
-            const ySelect = document.getElementById('select-y');
-            
-            // Populate Y metric options
-            populateMetricOptions(yOptions, header.slice(3), function(option, value) {
-                if (yTrigger.querySelector('span').textContent === value) {
-                    option.classList.add('selected');
-                }
-                if (value === header[4]) { // Default value
-                    option.classList.add('selected');
-                    // Update trigger text
-                    yTrigger.querySelector('span').textContent = value;
-                    const metricKey = value.toLowerCase().replace(/ /g, '-').replace(/%/g, 'pct');
-                    yTrigger.querySelector('span').setAttribute('data-i18n', 'metrics.' + metricKey);
-                }
-            });
-            
-            setupCustomSelect(yTrigger, yOptions, ySelect);
+            const dataURL = canvas.toDataURL('image/png', 1.0);
+            const link = document.createElement('a');
+            link.download = 'DataMB Screenshot.png';
+            link.href = dataURL;
+            link.click();
+            URL.revokeObjectURL(url);
         };
         
-        // Function to populate metric options
-        function populateMetricOptions(optionsContainer, metrics, callback) {
-            // Clear existing options
-            optionsContainer.innerHTML = '';
-            
-            // Create a custom option for each metric
-            metrics.forEach(function(metric) {
-                const customOption = document.createElement('div');
-                customOption.className = 'metric-select-option';
-                customOption.setAttribute('data-value', metric);
-                
-                const span = document.createElement('span');
-                span.textContent = metric;
-                
-                // Add data-i18n attribute for translation
-                const metricKey = metric.toLowerCase().replace(/ /g, '-').replace(/%/g, 'pct');
-                span.setAttribute('data-i18n', 'metrics.' + metricKey);
-                
-                customOption.appendChild(span);
-                
-                // Call the callback to potentially add selected class
-                if (callback) callback(customOption, metric);
-                
-                optionsContainer.appendChild(customOption);
-            });
-        }
-        
-        // Function to set up a custom select
-        function setupCustomSelect(trigger, options, selectElement) {
-            // Toggle dropdown when clicking the trigger
-            trigger.addEventListener('click', function() {
-                // Close all other open dropdowns first
-                document.querySelectorAll('.custom-select-trigger.open, .metric-select-trigger.open').forEach(function(openTrigger) {
-                    if (openTrigger !== trigger) {
-                        openTrigger.classList.remove('open');
-                        const openOptions = openTrigger.nextElementSibling;
-                        if (openOptions) openOptions.style.display = 'none';
-                    }
-                });
-                
-                // Toggle this dropdown
-                trigger.classList.toggle('open');
-                const isOpen = trigger.classList.contains('open');
-                options.style.display = isOpen ? 'block' : 'none';
-            });
-            
-            // Handle option selection
-            const optionElements = options.querySelectorAll('.custom-select-option, .metric-select-option');
-            optionElements.forEach(option => {
-                option.addEventListener('click', function() {
-                    // Update selected option
-                    optionElements.forEach(opt => opt.classList.remove('selected'));
-                    this.classList.add('selected');
-                    
-                    // Update trigger content
-                    const text = this.querySelector('span').textContent;
-                    const dataI18n = this.querySelector('span').getAttribute('data-i18n');
-                    const icon = this.querySelector('iconify-icon');
-                    
-                    trigger.innerHTML = '';
-                    
-                    if (icon) {
-                        const clonedIcon = icon.cloneNode(true);
-                        clonedIcon.style.marginRight = '8px';
-                        trigger.appendChild(clonedIcon);
-                    }
-                    
-                    const span = document.createElement('span');
-                    span.textContent = text;
-                    if (dataI18n) {
-                        span.setAttribute('data-i18n', dataI18n);
-                    }
-                    trigger.appendChild(span);
-                    
-                    // Update hidden select and trigger change event
-                    const value = this.getAttribute('data-value');
-                    selectElement.value = value || text;
-                    
-                    // Trigger the change event on the hidden select
-                    const event = new Event('change');
-                    selectElement.dispatchEvent(event);
-                    
-                    // Close dropdown
-                    trigger.classList.remove('open');
-                    options.style.display = 'none';
-                });
-            });
-            
-            // Add keyboard navigation
-            let searchTerm = '';
-            let searchTimeout;
-            
-            // Add keydown event listener to the document
-            document.addEventListener('keydown', function(e) {
-                // Only process keyboard input when dropdown is open
-                if (!trigger.classList.contains('open')) return;
-                
-                // Handle arrow keys for navigation
-                if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-                    e.preventDefault();
-                    
-                    const visibleOptions = Array.from(optionElements);
-                    const currentIndex = visibleOptions.findIndex(opt => opt.classList.contains('selected'));
-                    let newIndex;
-                    
-                    if (e.key === 'ArrowDown') {
-                        newIndex = currentIndex < visibleOptions.length - 1 ? currentIndex + 1 : 0;
-                    } else {
-                        newIndex = currentIndex > 0 ? currentIndex - 1 : visibleOptions.length - 1;
-                    }
-                    
-                    // Update selection
-                    optionElements.forEach(opt => opt.classList.remove('selected'));
-                    visibleOptions[newIndex].classList.add('selected');
-                    
-                    // Ensure the selected option is visible in the dropdown
-                    visibleOptions[newIndex].scrollIntoView({ block: 'nearest' });
-                    
-                    return;
-                }
-                
-                // Handle Enter key to select the currently highlighted option
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    const selectedOption = options.querySelector('.selected');
-                    if (selectedOption) {
-                        selectedOption.click();
-                    }
-                    return;
-                }
-                
-                // Handle Escape key to close the dropdown
-                if (e.key === 'Escape') {
-                    e.preventDefault();
-                    trigger.classList.remove('open');
-                    options.style.display = 'none';
-                    return;
-                }
-                
-                // Handle typing to search
-                if (e.key.length === 1 && e.key.match(/[a-zA-Z0-9%]/)) {
-                    // Clear the previous timeout
-                    clearTimeout(searchTimeout);
-                    
-                    // Add the key to the search term
-                    searchTerm += e.key.toLowerCase();
-                    
-                    // Find the first option that starts with the search term
-                    const matchingOption = Array.from(optionElements).find(option => {
-                        const optionText = option.querySelector('span').textContent.toLowerCase();
-                        return optionText.startsWith(searchTerm);
-                    });
-                    
-                    // If a matching option is found, select it
-                    if (matchingOption) {
-                        optionElements.forEach(opt => opt.classList.remove('selected'));
-                        matchingOption.classList.add('selected');
-                        matchingOption.scrollIntoView({ block: 'nearest' });
-                    }
-                    
-                    // Clear the search term after a delay
-                    searchTimeout = setTimeout(() => {
-                        searchTerm = '';
-                    }, 1000);
-                }
-            });
-        }
-        
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function(e) {
-            const triggers = document.querySelectorAll('.custom-select-trigger, .metric-select-trigger');
-            const optionsContainers = document.querySelectorAll('.custom-select-options, .metric-select-options');
-            
-            let clickedInsideDropdown = false;
-            
-            triggers.forEach(function(trigger, index) {
-                const options = optionsContainers[index];
-                
-                if (trigger && options && (trigger.contains(e.target) || options.contains(e.target))) {
-                    clickedInsideDropdown = true;
-                }
-            });
-            
-            if (!clickedInsideDropdown) {
-                triggers.forEach(function(trigger, index) {
-                    if (trigger && optionsContainers[index]) {
-                        trigger.classList.remove('open');
-                        optionsContainers[index].style.display = 'none';
-                    }
-                });
-            }
-        });
-        
-        // Function to capture and download the chart area
-        function takeScreenshot() {
-            // Get the chart container element (includes SVG and watermark)
-            const chartContainer = document.querySelector('.chart-container');
-            
-            // Check if we're in dark mode
-            const isDarkMode = document.body.classList.contains('dark-mode');
-            
-            // Use html2canvas to capture the entire chart container with watermark
-            html2canvas(chartContainer, {
-                scale: 2, // 2x resolution for higher quality
-                backgroundColor: isDarkMode ? '#2c2c2c' : '#FFFFFF',
-                allowTaint: true,
-                useCORS: true,
-                logging: false
-            }).then(function(renderedCanvas) {
-                // Convert canvas to image and trigger download
-                const dataURL = renderedCanvas.toDataURL('image/png', 1.0); // Use maximum quality
-                const link = document.createElement('a');
-                link.download = 'DataMB Screenshot.png';
-                link.href = dataURL;
-                link.click();
-            }).catch(function(error) {
-                console.error('Screenshot failed:', error);
-                
-                // Fallback method if html2canvas fails
-                fallbackScreenshot(isDarkMode);
-            });
-        }
-        
-        // Fallback screenshot method that captures just the SVG but with higher quality
-        function fallbackScreenshot(isDarkMode) {
-            // Get the SVG element
-            const svg = document.getElementById('scatter-plot');
-            const watermark = document.querySelector('.watermark-logo');
-            
-            // Get dimensions
-            const svgRect = svg.getBoundingClientRect();
-            
-            // Create a canvas with 2x resolution for higher quality
-            const canvas = document.createElement('canvas');
-            const scale = 2; // Increase resolution by 2x
-            canvas.width = svgRect.width * scale;
-            canvas.height = svgRect.height * scale;
-            
-            const ctx = canvas.getContext('2d');
-            ctx.scale(scale, scale); // Scale the context to match our increased canvas size
-            
-            // Set high quality rendering
-            ctx.imageSmoothingEnabled = true;
-            ctx.imageSmoothingQuality = 'high';
-            
-            // Fill canvas with appropriate background color
-            ctx.fillStyle = isDarkMode ? '#2c2c2c' : '#FFFFFF';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            // First draw the watermark
-            const watermarkImg = new Image();
-            watermarkImg.crossOrigin = "Anonymous";
-            watermarkImg.src = watermark.src;
-            
-            // Create an image from the SVG
-            const svgImg = new Image();
-            
-            // Get SVG data with proper XML serialization
-            const svgData = new XMLSerializer().serializeToString(svg);
-            const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
-            const url = URL.createObjectURL(svgBlob);
-            
-            // First load the watermark
-            watermarkImg.onload = function() {
-                // Calculate watermark position (centered)
-                const wmX = (svgRect.width - watermark.width) / 2;
-                const wmY = (svgRect.height - watermark.height) / 2;
-                
-                // Draw watermark with proper opacity
-                ctx.globalAlpha = 0.04; // Match the CSS opacity
-                ctx.drawImage(watermarkImg, wmX, wmY, watermark.width, watermark.height);
-                ctx.globalAlpha = 1.0;
-                
-                // Then load and draw the SVG
-                svgImg.onload = function() {
-                    // Draw the SVG on top
-                    ctx.drawImage(svgImg, 0, 0, svgRect.width, svgRect.height);
-                    
-                    // Convert canvas to image and trigger download
-                    const dataURL = canvas.toDataURL('image/png', 1.0); // Use maximum quality
-                    const link = document.createElement('a');
-                    link.download = 'team-performance-chart.png';
-                    link.href = dataURL;
-                    link.click();
-                    
-                    // Clean up
-                    URL.revokeObjectURL(url);
-                };
-                
-                svgImg.src = url;
-            };
-        }
-        
-        // Add event listeners for position buttons
-        document.querySelectorAll('.position-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.position-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                // Add position filtering logic here
-            });
-        });
-        
-   
-    </script>
+        watermarkImg.src = 'https://datamb.football/logo.png';
+    };
     
-    <script>
+    svgImg.src = url;
+}
 
-var _0x3571df=_0x246a;(function(_0x4510d8,_0x3ad3dc){var _0xf4692b=_0x246a,_0x414b46=_0x4510d8();while(!![]){try{var _0x1adc40=-parseInt(_0xf4692b(0xda))/0x1*(-parseInt(_0xf4692b(0x132))/0x2)+-parseInt(_0xf4692b(0x133))/0x3+parseInt(_0xf4692b(0xd7))/0x4+parseInt(_0xf4692b(0xef))/0x5+parseInt(_0xf4692b(0x184))/0x6+parseInt(_0xf4692b(0x138))/0x7*(parseInt(_0xf4692b(0x18d))/0x8)+-parseInt(_0xf4692b(0xd8))/0x9;if(_0x1adc40===_0x3ad3dc)break;else _0x414b46['push'](_0x414b46['shift']());}catch(_0x3b4424){_0x414b46['push'](_0x414b46['shift']());}}}(_0x1ccc,0x28555));function getTranslation(_0x32141d,_0x1d38ba){var _0x3ffdc4=_0x246a;const _0xae2814=_0x32141d[_0x3ffdc4(0x10f)]('.');try{let _0x368585=window[_0x3ffdc4(0x186)]||{};for(const _0x17a79b of _0xae2814){if(_0x368585&&_0x368585[_0x17a79b])_0x368585=_0x368585[_0x17a79b];else return _0x1d38ba;}return _0x368585;}catch(_0x19f385){return _0x1d38ba;}}const xhr=new XMLHttpRequest();xhr[_0x3571df(0x150)](_0x3571df(0x166),_0x3571df(0x17a),![]),xhr['send'](null);let csvData=xhr[_0x3571df(0x164)],extraHeaderRow='ID,Player,Top\x207\x20Leagues,Goals\x20per\x2090,xG\x20per\x2090,Shots\x20on\x20target\x20per\x2090,Shots\x20on\x20target\x20%,Passes\x20completed,Pass\x20accuracy\x20%,Possession\x20%,Positional\x20attacks\x20per\x2090,Counter\x20attacks\x20per\x2090,Touches\x20in\x20the\x20box\x20per\x2090,Goals\x20conceded\x20per\x2090,SoT\x20against\x20per\x2090,Defensive\x20duels\x20per\x2090,Defensive\x20duel\x20%,Aerial\x20duels\x20per\x2090,Aerial\x20duels\x20%,Passes\x20per\x20possession,PPDA\x0a';csvData=extraHeaderRow+csvData;var rows=csvData[_0x3571df(0x141)]()[_0x3571df(0x10f)]('\x0a'),header=rows[0x0][_0x3571df(0x10f)](','),data=rows['slice'](0x1)['map'](function(_0x3e138d){var _0x136245=_0x3571df;return _0x3e138d[_0x136245(0x10f)](',')[_0x136245(0x11b)](function(_0x470297,_0x36a786){return _0x36a786>=0x3?parseFloat(_0x470297):_0x470297;});}),margin={'top':0x0,'right':0x0,'bottom':0x0,'left':0x0},width=0x43a-margin['left']-margin[_0x3571df(0x119)],height=0x302-margin[_0x3571df(0x17b)]-margin['bottom'],leagueColors={'Premier\x20League':_0x3571df(0x13b),'La\x20Liga':_0x3571df(0xe1),'Bundesliga':'rgba(255,\x20255,\x200,\x200.7)','Serie\x20A':'rgba(0,\x20128,\x200,\x200.7)','Ligue\x201':_0x3571df(0x14e),'Eredivisie':_0x3571df(0x12e),'Primeira\x20Liga':_0x3571df(0x14a)};function getLeagueColor(_0x34dc22){var _0x11ec72=_0x3571df;return leagueColors[_0x34dc22]||_0x11ec72(0x13b);}function updateChartDimensions(){var _0x37f1e1=_0x3571df,_0x1a198f=document[_0x37f1e1(0xe7)](_0x37f1e1(0x157))[_0x37f1e1(0x163)],_0x13f97b=window[_0x37f1e1(0x101)]*0.7,_0x18f48d=0x1e,_0x38c91f=Math[_0x37f1e1(0x158)](0x43a,_0x1a198f-_0x18f48d*0x2),_0x1f4ee9=window[_0x37f1e1(0x16c)]/window[_0x37f1e1(0x101)]<0x1;if(_0x1f4ee9){margin={'top':0x28,'right':0x1e,'bottom':0x3c,'left':0x4b};var _0x2f7f40=1.4,_0xe4e12e=Math['min'](_0x13f97b,_0x38c91f*_0x2f7f40);_0xe4e12e=Math[_0x37f1e1(0x16d)](_0xe4e12e,0x1f4);}else{margin={'top':0x28,'right':0x1e,'bottom':0x3c,'left':0x4f};var _0x189ddc=0.7,_0xe4e12e=_0x38c91f*_0x189ddc;}width=_0x38c91f-margin[_0x37f1e1(0x140)]-margin[_0x37f1e1(0x119)],height=_0xe4e12e-margin[_0x37f1e1(0x17b)]-margin[_0x37f1e1(0x16a)],d3['select'](_0x37f1e1(0x122))[_0x37f1e1(0x154)](_0x37f1e1(0x172),_0x38c91f)[_0x37f1e1(0x154)](_0x37f1e1(0x14f),_0xe4e12e),document[_0x37f1e1(0xe7)](_0x37f1e1(0x12f))[_0x37f1e1(0xf7)][_0x37f1e1(0x14f)]=_0xe4e12e+'px';}window[_0x3571df(0x10b)](_0x3571df(0x104),function(){var _0x2cbc79=_0x3571df;clearTimeout(window[_0x2cbc79(0x16e)]),window[_0x2cbc79(0x16e)]=setTimeout(function(){updateChartDimensions(),updateChart();},0xfa);}),updateChartDimensions();function debounce(_0x188c92,_0x260df9){let _0x5cd123;return function(){const _0x3ff3f1=this,_0x233599=arguments;clearTimeout(_0x5cd123),_0x5cd123=setTimeout(function(){var _0x583f26=_0x246a;_0x188c92[_0x583f26(0x187)](_0x3ff3f1,_0x233599);},_0x260df9);};}var prevWindowWidth=window[_0x3571df(0x16c)],prevWindowHeight=window[_0x3571df(0x101)];window[_0x3571df(0x10b)]('resize',debounce(function(){var _0x295e36=_0x3571df,_0x414b0e=prevWindowWidth/prevWindowHeight<0x1,_0x526fa2=window[_0x295e36(0x16c)]/window[_0x295e36(0x101)]<0x1;prevWindowWidth=window[_0x295e36(0x16c)],prevWindowHeight=window['innerHeight'],updateChart();},0xfa));function _0x246a(_0x2f8eb4,_0x3dc654){var _0x1ccc70=_0x1ccc();return _0x246a=function(_0x246ac4,_0x4d9b2c){_0x246ac4=_0x246ac4-0xcc;var _0x1b086c=_0x1ccc70[_0x246ac4];return _0x1b086c;},_0x246a(_0x2f8eb4,_0x3dc654);}var medianLinesVisible=![],selectX=d3[_0x3571df(0x152)](_0x3571df(0xf5)),selectY=d3['select']('#select-y'),names=data[_0x3571df(0x11b)](function(_0x5792db){return _0x5792db[0x1];});header[_0x3571df(0x174)](0x3)[_0x3571df(0x156)](function(_0x38a083){var _0x2327d9=_0x3571df;selectX[_0x2327d9(0x192)](_0x2327d9(0xdf))['text'](_0x38a083)[_0x2327d9(0x154)](_0x2327d9(0xfd),_0x38a083),selectY[_0x2327d9(0x192)](_0x2327d9(0xdf))[_0x2327d9(0x103)](_0x38a083)[_0x2327d9(0x154)](_0x2327d9(0xfd),_0x38a083);}),selectX[_0x3571df(0x142)](_0x3571df(0xfd),header[0x3]),selectY[_0x3571df(0x142)](_0x3571df(0xfd),header[0x4]);var svg=d3[_0x3571df(0x152)]('#scatter-plot')['attr']('width',width+margin[_0x3571df(0x140)]+margin[_0x3571df(0x119)])[_0x3571df(0x154)](_0x3571df(0x14f),height+margin[_0x3571df(0x17b)]+margin[_0x3571df(0x16a)])[_0x3571df(0x192)]('g')[_0x3571df(0x154)](_0x3571df(0x196),_0x3571df(0x181)+margin['left']+','+margin[_0x3571df(0x17b)]+')'),xMetric=header[0x3],yMetric=header[0x4],xScale=d3['scaleLinear']()[_0x3571df(0x162)]([0x0,width]),yScale=d3[_0x3571df(0x120)]()[_0x3571df(0x162)]([height,0x0]),xAxis=d3[_0x3571df(0x148)](xScale)[_0x3571df(0xfb)](0x0),yAxis=d3['axisLeft'](yScale)[_0x3571df(0xfb)](0x0),gXAxis=svg['append']('g')[_0x3571df(0x154)]('class',_0x3571df(0x175))[_0x3571df(0x154)](_0x3571df(0x196),_0x3571df(0x10e)+height+')'),gYAxis=svg[_0x3571df(0x192)]('g')[_0x3571df(0x154)](_0x3571df(0x167),'y-axis'),xLabel=svg['append'](_0x3571df(0x103))[_0x3571df(0x154)](_0x3571df(0x167),'x-label')['attr'](_0x3571df(0xd4),_0x3571df(0x127))['attr']('x',width)[_0x3571df(0x154)]('y',height+0x23)['style'](_0x3571df(0xe2),_0x3571df(0xd3))[_0x3571df(0xf7)](_0x3571df(0x15c),_0x3571df(0x100)),yLabel=svg[_0x3571df(0x192)](_0x3571df(0x103))[_0x3571df(0x154)]('class',_0x3571df(0x149))['attr'](_0x3571df(0xd4),'end')[_0x3571df(0x154)](_0x3571df(0x196),_0x3571df(0x134))[_0x3571df(0x154)]('y',-0x35)[_0x3571df(0x154)]('x',0x0)[_0x3571df(0xf7)](_0x3571df(0xe2),_0x3571df(0xd3))['style']('font-size',_0x3571df(0x100)),tooltip=d3[_0x3571df(0x152)](_0x3571df(0xfc))['append'](_0x3571df(0xee))[_0x3571df(0x154)](_0x3571df(0x167),'tooltip');function isMobileDevice(){var _0x42bc79=_0x3571df;return window[_0x42bc79(0x16c)]<=0x300;}function positionTooltip(_0x4594e4,_0x4d26de){var _0x2d7d88=_0x3571df;const _0x4b8d94=_0x4d26de[_0x2d7d88(0x109)]();if(!_0x4b8d94)return{'left':0x0,'top':0x0};const _0x5c5ecd=_0x4b8d94[_0x2d7d88(0x180)](),_0x377b01=window['innerWidth'],_0x241a5c=window[_0x2d7d88(0x101)];let _0x361baf=_0x4594e4[_0x2d7d88(0xe5)]+0xa,_0x399cea=_0x4594e4[_0x2d7d88(0x18e)]-0x1c;return _0x361baf+_0x5c5ecd['width']>_0x377b01-0xa&&(_0x361baf=_0x4594e4[_0x2d7d88(0xe5)]-_0x5c5ecd[_0x2d7d88(0x172)]-0xa),_0x399cea+_0x5c5ecd[_0x2d7d88(0x14f)]>_0x241a5c-0xa&&(_0x399cea=_0x4594e4[_0x2d7d88(0x18e)]-_0x5c5ecd['height']-0xa),_0x361baf=Math[_0x2d7d88(0x16d)](0xa,_0x361baf),_0x399cea=Math[_0x2d7d88(0x16d)](0xa,_0x399cea),{'left':_0x361baf,'top':_0x399cea};}var clickedCircles=[],filteredData=data,filteredNames=names,circles;function updateChart(){var _0x16ed1a=_0x3571df;updateChartDimensions(),d3['select'](_0x16ed1a(0x122))['attr'](_0x16ed1a(0x172),width+margin[_0x16ed1a(0x140)]+margin[_0x16ed1a(0x119)])[_0x16ed1a(0x154)](_0x16ed1a(0x14f),height+margin[_0x16ed1a(0x17b)]+margin[_0x16ed1a(0x16a)]),gXAxis[_0x16ed1a(0x154)](_0x16ed1a(0x196),'translate(0,'+height+')'),xLabel[_0x16ed1a(0x154)]('x',width)[_0x16ed1a(0x154)]('y',height+0x23),yLabel[_0x16ed1a(0x154)]('x',0x0);const _0x2508f3=document['body']['classList'][_0x16ed1a(0x121)]('dark-mode');var _0x93ab6=document[_0x16ed1a(0xe4)](_0x16ed1a(0x179))[_0x16ed1a(0xfd)];if(_0x93ab6==='all')filteredData=data;else _0x93ab6==='Top\x205\x20Leagues'?filteredData=data['filter'](function(_0xf36345){var _0x83e341=_0x16ed1a;return _0xf36345[0x2]===_0x83e341(0x124)||_0xf36345[0x2]==='La\x20Liga'||_0xf36345[0x2]==='Bundesliga'||_0xf36345[0x2]===_0x83e341(0x12d)||_0xf36345[0x2]==='Ligue\x201';}):filteredData=data['filter'](function(_0xeb130e){return _0xeb130e[0x2]===_0x93ab6;});filteredNames=filteredData[_0x16ed1a(0x11b)](function(_0x504331){return _0x504331[0x1];}),xMetric=selectX[_0x16ed1a(0x142)]('value'),yMetric=selectY['property'](_0x16ed1a(0xfd)),xScale['range']([0x0,width])['domain']((function(){var _0x1b0898=_0x16ed1a;const _0x24c0f0=d3['min'](filteredData,_0xc24830=>_0xc24830[header[_0x1b0898(0x106)](xMetric)]),_0x100412=d3['max'](filteredData,_0x3303d9=>_0x3303d9[header[_0x1b0898(0x106)](xMetric)]),_0x2e366f=_0x100412-_0x24c0f0,_0x3aa450=_0x2e366f*0.1;return[_0x24c0f0-_0x3aa450,_0x100412+_0x3aa450];}())),yScale[_0x16ed1a(0x162)]([height,0x0])[_0x16ed1a(0x183)]((function(){var _0x422593=_0x16ed1a;const _0x134040=d3[_0x422593(0x158)](filteredData,_0x482e78=>_0x482e78[header[_0x422593(0x106)](yMetric)]),_0x2dd53a=d3['max'](filteredData,_0x29bf5e=>_0x29bf5e[header[_0x422593(0x106)](yMetric)]),_0x5d370f=_0x2dd53a-_0x134040,_0x578d92=_0x5d370f*0.1;return[_0x134040-_0x578d92,_0x2dd53a+_0x578d92];}())),gXAxis[_0x16ed1a(0x128)](d3[_0x16ed1a(0x148)](xScale)[_0x16ed1a(0xfb)](0x0)),gYAxis['call'](d3[_0x16ed1a(0xf0)](yScale)[_0x16ed1a(0xfb)](0x0));const _0x59aed9='metrics.'+xMetric[_0x16ed1a(0x112)]()[_0x16ed1a(0x13c)](/ /g,'-')[_0x16ed1a(0x13c)](/%/g,_0x16ed1a(0x190)),_0x4fc200=_0x16ed1a(0x107)+yMetric['toLowerCase']()[_0x16ed1a(0x13c)](/ /g,'-')['replace'](/%/g,'pct');xLabel[_0x16ed1a(0x154)](_0x16ed1a(0x168),_0x59aed9),yLabel['attr'](_0x16ed1a(0x168),_0x4fc200);if(window[_0x16ed1a(0x186)]&&window[_0x16ed1a(0x186)][_0x16ed1a(0x165)]){const _0x10ded4=xMetric['toLowerCase']()[_0x16ed1a(0x13c)](/ /g,'-')['replace'](/%/g,_0x16ed1a(0x190)),_0xc6a065=yMetric[_0x16ed1a(0x112)]()[_0x16ed1a(0x13c)](/ /g,'-')[_0x16ed1a(0x13c)](/%/g,'pct'),_0x5762bf=window[_0x16ed1a(0x186)]['metrics'][_0x10ded4],_0x1de4e6=window[_0x16ed1a(0x186)]['metrics'][_0xc6a065];xLabel['text'](_0x5762bf||xMetric),yLabel[_0x16ed1a(0x103)](_0x1de4e6||yMetric);}else xLabel[_0x16ed1a(0x103)](xMetric),yLabel[_0x16ed1a(0x103)](yMetric);svg[_0x16ed1a(0x153)]('circle')['remove'](),svg['selectAll'](_0x16ed1a(0x188))[_0x16ed1a(0x114)](),svg[_0x16ed1a(0x153)](_0x16ed1a(0xfa))['remove'](),svg[_0x16ed1a(0x153)](_0x16ed1a(0xd0))[_0x16ed1a(0x114)](),svg[_0x16ed1a(0x153)](_0x16ed1a(0x13e))[_0x16ed1a(0x114)](),svg[_0x16ed1a(0x153)](_0x16ed1a(0xe3))['remove'](),svg[_0x16ed1a(0x153)]('.performance-label')[_0x16ed1a(0x114)](),svg[_0x16ed1a(0x153)](_0x16ed1a(0xeb))[_0x16ed1a(0x114)](),svg[_0x16ed1a(0x153)](_0x16ed1a(0x189))[_0x16ed1a(0x114)](),svg[_0x16ed1a(0x153)](_0x16ed1a(0x102))['remove'](),svg[_0x16ed1a(0x153)](_0x16ed1a(0xe9))[_0x16ed1a(0x114)]();if(xMetric===_0x16ed1a(0xfe)&&yMetric===_0x16ed1a(0x16b)||xMetric===_0x16ed1a(0x16b)&&yMetric===_0x16ed1a(0xfe)){var _0x24edad=null,_0xcea359=d3[_0x16ed1a(0x158)](filteredData,function(_0xbb5bfb){var _0x4cdd43=_0x16ed1a;return _0xbb5bfb[header[_0x4cdd43(0x106)](xMetric)];}),_0x493f50=d3[_0x16ed1a(0x16d)](filteredData,function(_0x198f30){return _0x198f30[header['indexOf'](xMetric)];}),_0x1c592f=d3[_0x16ed1a(0x158)](filteredData,function(_0x5303d4){return _0x5303d4[header['indexOf'](yMetric)];}),_0x430051=d3['max'](filteredData,function(_0x8ea03){var _0x518658=_0x16ed1a;return _0x8ea03[header[_0x518658(0x106)](yMetric)];}),_0x41ea79=Math['min'](_0x493f50,_0x430051),_0x3ef4f0=Math[_0x16ed1a(0x16d)](_0xcea359,_0x1c592f);svg['append'](_0x16ed1a(0xcc))[_0x16ed1a(0x154)](_0x16ed1a(0x167),_0x16ed1a(0xd9))[_0x16ed1a(0x154)]('x1',xScale(_0x3ef4f0))['attr']('y1',yScale(_0x3ef4f0))[_0x16ed1a(0x154)]('x2',xScale(_0x41ea79))[_0x16ed1a(0x154)]('y2',yScale(_0x41ea79))[_0x16ed1a(0xf7)](_0x16ed1a(0x14b),_0x16ed1a(0x12a))[_0x16ed1a(0xf7)](_0x16ed1a(0x11f),'2')[_0x16ed1a(0xf7)](_0x16ed1a(0x178),_0x16ed1a(0x173)),svg[_0x16ed1a(0x192)]('line')['attr'](_0x16ed1a(0x167),_0x16ed1a(0x15f))[_0x16ed1a(0x154)]('x1',xScale(_0x3ef4f0))[_0x16ed1a(0x154)]('y1',yScale(_0x3ef4f0))[_0x16ed1a(0x154)]('x2',xScale(_0x41ea79))['attr']('y2',yScale(_0x41ea79))[_0x16ed1a(0xf7)](_0x16ed1a(0x14b),_0x16ed1a(0x197))[_0x16ed1a(0xf7)]('stroke-width','15')[_0x16ed1a(0xf7)](_0x16ed1a(0x13a),'help')['on'](_0x16ed1a(0x137),function(){var _0x57e374=_0x16ed1a;_0x24edad&&clearTimeout(_0x24edad);var _0x1f2d32=d3[_0x57e374(0x14c)][_0x57e374(0xe5)],_0x2bc266=d3['event'][_0x57e374(0x18e)];_0x24edad=setTimeout(function(){var _0x587a6f=_0x57e374;tooltip[_0x587a6f(0x14d)]()[_0x587a6f(0x15d)](0xc8)[_0x587a6f(0xf7)](_0x587a6f(0x113),0.9);var _0x2d6354=_0x587a6f(0xdc)+getTranslation(_0x587a6f(0xdb),_0x587a6f(0xf6))+_0x587a6f(0x131);xMetric==='xG\x20per\x2090'&&yMetric===_0x587a6f(0x16b)?_0x2d6354+=_0x587a6f(0x17e)+getTranslation('tooltip.xg-line-above','Teams\x20above\x20this\x20line\x20are\x20scoring\x20more\x20goals\x20than\x20expected.')+_0x587a6f(0xe8)+_0x587a6f(0x17e)+getTranslation('tooltip.xg-line-below',_0x587a6f(0x145))+_0x587a6f(0x111):_0x2d6354+=_0x587a6f(0x17e)+getTranslation(_0x587a6f(0xec),_0x587a6f(0x15b))+_0x587a6f(0xe8)+_0x587a6f(0x17e)+getTranslation(_0x587a6f(0xcf),_0x587a6f(0x143))+_0x587a6f(0x111),tooltip[_0x587a6f(0x15a)](_0x2d6354)[_0x587a6f(0xf7)](_0x587a6f(0x140),_0x1f2d32+0xa+'px')[_0x587a6f(0xf7)](_0x587a6f(0x17b),_0x2bc266-0x1c+'px');},0x258);})['on'](_0x16ed1a(0x171),function(){var _0x33d089=_0x16ed1a;_0x24edad&&(clearTimeout(_0x24edad),_0x24edad=null),tooltip[_0x33d089(0x14d)]()[_0x33d089(0x15d)](0x1f4)[_0x33d089(0xf7)]('opacity',0x0);});}if(medianLinesVisible){var _0x4d8590=d3[_0x16ed1a(0x105)](filteredData,function(_0x12fc6b){var _0x3133e2=_0x16ed1a;return _0x12fc6b[header[_0x3133e2(0x106)](xMetric)];}),_0x2ce9c0=d3['median'](filteredData,function(_0x53708e){return _0x53708e[header['indexOf'](yMetric)];});svg['append'](_0x16ed1a(0xcc))['attr']('class',_0x16ed1a(0x12b))[_0x16ed1a(0x154)]('x1',xScale(_0x4d8590))[_0x16ed1a(0x154)]('y1',0x0)[_0x16ed1a(0x154)]('x2',xScale(_0x4d8590))[_0x16ed1a(0x154)]('y2',height)[_0x16ed1a(0xf7)]('stroke',_0x16ed1a(0x161))[_0x16ed1a(0xf7)](_0x16ed1a(0x178),'4'),svg[_0x16ed1a(0x192)](_0x16ed1a(0xcc))[_0x16ed1a(0x154)](_0x16ed1a(0x167),_0x16ed1a(0x12b))[_0x16ed1a(0x154)]('x1',0x0)[_0x16ed1a(0x154)]('y1',yScale(_0x2ce9c0))[_0x16ed1a(0x154)]('x2',width)['attr']('y2',yScale(_0x2ce9c0))[_0x16ed1a(0xf7)](_0x16ed1a(0x14b),_0x16ed1a(0x161))['style']('stroke-dasharray','4');}circles=svg['selectAll'](_0x16ed1a(0x147))[_0x16ed1a(0xcd)](filteredData)[_0x16ed1a(0xd2)]()[_0x16ed1a(0x192)](_0x16ed1a(0x147))['attr']('cx',function(_0x638c22){var _0x1477c9=_0x16ed1a;return xScale(_0x638c22[header[_0x1477c9(0x106)](xMetric)]);})[_0x16ed1a(0x154)]('cy',function(_0x581a7d){var _0x32b211=_0x16ed1a;return yScale(_0x581a7d[header[_0x32b211(0x106)](yMetric)]);})[_0x16ed1a(0x154)]('r',0x8)[_0x16ed1a(0xf7)](_0x16ed1a(0x17d),function(_0x5bd65a){if(clickedCircles['includes'](_0x5bd65a[0x1]))return getLeagueColor(_0x5bd65a[0x2]);return'rgba(70,\x20130,\x20180,\x200.7)';})[_0x16ed1a(0xf7)]('stroke',function(_0x4d8f72){var _0x2a1fd8=_0x16ed1a;return clickedCircles[_0x2a1fd8(0x135)](_0x4d8f72[0x1])?_0x2a1fd8(0xd1):_0x2a1fd8(0x18c);})[_0x16ed1a(0xf7)](_0x16ed1a(0x11f),function(_0x1aa9fa){return clickedCircles['includes'](_0x1aa9fa[0x1])?0x2:0x0;})['style'](_0x16ed1a(0x13a),'pointer')['on']('mouseover',function(_0x430779){var _0x14ce59=_0x16ed1a;d3['select'](this)[_0x14ce59(0x14d)]()[_0x14ce59(0x15d)](0xc8)[_0x14ce59(0x154)]('r',0xa)['style'](_0x14ce59(0x17d),getLeagueColor(_0x430779[0x2])),tooltip[_0x14ce59(0x14d)]()[_0x14ce59(0x15d)](0xc8)[_0x14ce59(0xf7)](_0x14ce59(0x113),0.9);const _0x1bef02='metrics.'+xMetric[_0x14ce59(0x112)]()[_0x14ce59(0x13c)](/ /g,'-')['replace'](/%/g,_0x14ce59(0x190)),_0x3e4293=_0x14ce59(0x107)+yMetric[_0x14ce59(0x112)]()['replace'](/ /g,'-')[_0x14ce59(0x13c)](/%/g,_0x14ce59(0x190)),_0x2be73c=getTranslation(_0x1bef02,xMetric),_0x3bbe62=getTranslation(_0x3e4293,yMetric);tooltip[_0x14ce59(0x15a)](_0x14ce59(0xdc)+_0x430779[0x1]+_0x14ce59(0x131)+_0x2be73c+':\x20'+_0x430779[header[_0x14ce59(0x106)](xMetric)][_0x14ce59(0x151)](0x2)+_0x14ce59(0x16f)+_0x3bbe62+':\x20'+_0x430779[header[_0x14ce59(0x106)](yMetric)][_0x14ce59(0x151)](0x2));const _0x38cad5=tooltip[_0x14ce59(0x109)]();if(_0x38cad5){const _0x7176ce=_0x38cad5['getBoundingClientRect'](),_0x6d3a9=window[_0x14ce59(0x16c)],_0xa5d6f4=window['innerHeight'];let _0xe8a60b=d3[_0x14ce59(0x14c)][_0x14ce59(0xe5)]+0xa,_0x93251b=d3[_0x14ce59(0x14c)][_0x14ce59(0x18e)]-0x1c;_0xe8a60b+_0x7176ce['width']>_0x6d3a9-0xa&&(_0xe8a60b=d3[_0x14ce59(0x14c)][_0x14ce59(0xe5)]-_0x7176ce['width']-0xa),_0x93251b+_0x7176ce[_0x14ce59(0x14f)]>_0xa5d6f4-0xa&&(_0x93251b=d3['event'][_0x14ce59(0x18e)]-_0x7176ce[_0x14ce59(0x14f)]-0xa),_0xe8a60b=Math[_0x14ce59(0x16d)](0xa,_0xe8a60b),_0x93251b=Math[_0x14ce59(0x16d)](0xa,_0x93251b),tooltip[_0x14ce59(0xf7)](_0x14ce59(0x140),_0xe8a60b+'px')[_0x14ce59(0xf7)]('top',_0x93251b+'px');}else tooltip['style']('left',d3[_0x14ce59(0x14c)][_0x14ce59(0xe5)]+0xa+'px')[_0x14ce59(0xf7)](_0x14ce59(0x17b),d3[_0x14ce59(0x14c)][_0x14ce59(0x18e)]-0x1c+'px');window[_0x14ce59(0x16c)]<=0x300&&setTimeout(function(){var _0xcf6e69=_0x14ce59;tooltip[_0xcf6e69(0x14d)]()[_0xcf6e69(0x15d)](0xc8)[_0xcf6e69(0xf7)](_0xcf6e69(0x113),0x0);},0x3e8);})['on'](_0x16ed1a(0x171),function(_0xaf90a3){var _0x4c674a=_0x16ed1a;window[_0x4c674a(0x16c)]>0x300&&tooltip['transition']()[_0x4c674a(0x15d)](0x1f4)['style']('opacity',0x0);var _0x450c69=clickedCircles[_0x4c674a(0x135)](_0xaf90a3[0x1]);d3['select'](this)[_0x4c674a(0x14d)]()[_0x4c674a(0x15d)](0xc8)[_0x4c674a(0x154)]('r',0x8)['style'](_0x4c674a(0x17d),function(){var _0x52a8da=_0x4c674a;return _0x450c69?getLeagueColor(_0xaf90a3[0x2]):_0x52a8da(0x177);});})['on'](_0x16ed1a(0x13d),function(_0x59e554){var _0x3ec6ef=_0x16ed1a,_0x42ead3=d3['select'](this)[_0x3ec6ef(0xce)](_0x3ec6ef(0x10a));_0x42ead3&&resetSearch();var _0x155af8=clickedCircles[_0x3ec6ef(0x106)](_0x59e554[0x1]);_0x155af8===-0x1?(clickedCircles[_0x3ec6ef(0xf4)](_0x59e554[0x1]),d3[_0x3ec6ef(0x152)](this)[_0x3ec6ef(0xf7)](_0x3ec6ef(0x17d),getLeagueColor(_0x59e554[0x2]))[_0x3ec6ef(0xf7)](_0x3ec6ef(0x14b),_0x3ec6ef(0xd1))['style'](_0x3ec6ef(0x11f),0x2),addTeamLabel(_0x59e554)):(clickedCircles['splice'](_0x155af8,0x1),d3['select'](this)[_0x3ec6ef(0xf7)](_0x3ec6ef(0x17d),'rgba(70,\x20130,\x20180,\x200.7)')[_0x3ec6ef(0xf7)]('stroke',_0x3ec6ef(0x18c)),svg[_0x3ec6ef(0x153)](_0x3ec6ef(0xff)+_0x59e554[0x1][_0x3ec6ef(0x13c)](/\s+/g,'-')['toLowerCase']())[_0x3ec6ef(0x114)]());updateSelectAllButtonText();var _0x2c8d4d=document[_0x3ec6ef(0xe4)](_0x3ec6ef(0x179))['value'];updateLeagueLegend(_0x2c8d4d);}),clickedCircles[_0x16ed1a(0x156)](function(_0x40d4ae){var _0x586d5f=filteredData['find'](function(_0x22c080){return _0x22c080[0x1]===_0x40d4ae;});_0x586d5f&&addTeamLabel(_0x586d5f);}),updateSelectAllButtonText(),updateLeagueLegend(_0x93ab6);}function updateSelectAllButtonText(){var _0x4ce6e8=_0x3571df,_0x7315be=document[_0x4ce6e8(0xe4)](_0x4ce6e8(0x117)),_0x486e2d=document[_0x4ce6e8(0xe4)](_0x4ce6e8(0x123)),_0x5e22d9=filteredData[_0x4ce6e8(0xde)](function(_0x36bed8){var _0xd22b5=_0x4ce6e8;return clickedCircles[_0xd22b5(0x135)](_0x36bed8[0x1]);});_0x5e22d9?(_0x7315be['className']=_0x4ce6e8(0x11a),_0x486e2d&&(window[_0x4ce6e8(0x186)]&&window[_0x4ce6e8(0x186)]['tooltip']?_0x486e2d[_0x4ce6e8(0x195)]=window[_0x4ce6e8(0x186)]['tooltip'][_0x4ce6e8(0x198)]||_0x4ce6e8(0x160):_0x486e2d[_0x4ce6e8(0x195)]=_0x4ce6e8(0x160))):(_0x7315be['className']=_0x4ce6e8(0xd6),_0x486e2d&&(window['currentTranslations']&&window[_0x4ce6e8(0x186)][_0x4ce6e8(0x199)]?_0x486e2d[_0x4ce6e8(0x195)]=window[_0x4ce6e8(0x186)]['tooltip']['selectAll']||_0x4ce6e8(0xf2):_0x486e2d[_0x4ce6e8(0x195)]=_0x4ce6e8(0xf2)));}selectX['on']('change',updateChart),selectY['on'](_0x3571df(0xea),updateChart);function removeSpecialCharsAndDiacritics(_0x2243af){var _0x53ca25=_0x3571df;if(!_0x2243af)return'';return _0x2243af[_0x53ca25(0x17f)]('NFD')[_0x53ca25(0x13c)](/[\u0300-\u036f]/g,'')[_0x53ca25(0x13c)](/Ø/g,'O')['replace'](/ø/g,'o');}var searchBar=document[_0x3571df(0xe4)]('search-bar');searchBar[_0x3571df(0x10b)](_0x3571df(0x108),function(){var _0x387178=_0x3571df,_0x34b75a=searchBar[_0x387178(0xfd)][_0x387178(0x112)]();if(_0x34b75a===''){resetSearch();return;}var _0x2585af=removeSpecialCharsAndDiacritics(_0x34b75a);svg[_0x387178(0x153)](_0x387178(0x147))[_0x387178(0xce)]('search-match',![])['style'](_0x387178(0x17d),function(_0x5973b2){return clickedCircles['includes'](_0x5973b2[0x1])?getLeagueColor(_0x5973b2[0x2]):'rgba(70,\x20130,\x20180,\x200.7)';})[_0x387178(0xf7)]('stroke',function(_0x2665e8){var _0x4ce82e=_0x387178;return clickedCircles[_0x4ce82e(0x135)](_0x2665e8[0x1])?_0x4ce82e(0xd1):_0x4ce82e(0x18c);})['style'](_0x387178(0x11f),function(_0x24fe55){var _0x3ef8d6=_0x387178;return clickedCircles[_0x3ef8d6(0x135)](_0x24fe55[0x1])?0x2:0x0;})[_0x387178(0xf7)](_0x387178(0x118),'none')[_0x387178(0xf8)](function(){var _0x487ba6=_0x387178;d3[_0x487ba6(0x152)](this)[_0x487ba6(0xf7)]('r',null);}),svg[_0x387178(0x153)](_0x387178(0x188))[_0x387178(0xce)](_0x387178(0x10a),![])['classed'](_0x387178(0x159),![]);var _0x4fa4f9=[];svg[_0x387178(0x153)](_0x387178(0x147))[_0x387178(0x118)](function(_0x4e4dd5){var _0x517415=_0x387178,_0x32a9eb=_0x4e4dd5[0x1][_0x517415(0x112)](),_0x3cca48=removeSpecialCharsAndDiacritics(_0x32a9eb),_0x23deaf=_0x32a9eb['includes'](_0x34b75a)||_0x3cca48['includes'](_0x2585af);return _0x23deaf&&_0x4fa4f9[_0x517415(0xf4)](_0x4e4dd5[0x1]),_0x23deaf;})[_0x387178(0xce)](_0x387178(0x10a),!![])[_0x387178(0xf8)](function(){var _0x5cc699=_0x387178;this['parentNode'][_0x5cc699(0xf3)](this);}),_0x4fa4f9[_0x387178(0x15e)]>0x0?(svg[_0x387178(0x153)](_0x387178(0x188))[_0x387178(0xce)](_0x387178(0x159),!![]),svg['selectAll'](_0x387178(0x188))['filter'](function(){var _0x320ccc=_0x387178,_0x26cd0f=d3[_0x320ccc(0x152)](this)[_0x320ccc(0x103)]();return _0x4fa4f9[_0x320ccc(0x135)](_0x26cd0f);})['classed']('search-match',!![])[_0x387178(0xce)](_0x387178(0x159),![])['each'](function(){var _0x1e609c=_0x387178;this[_0x1e609c(0xf9)][_0x1e609c(0xf3)](this);}),_0x4fa4f9[_0x387178(0x156)](function(_0x4cbf6e){var _0x3d6edd=_0x387178,_0x1589f2=_0x3d6edd(0xed)+_0x4cbf6e[_0x3d6edd(0x13c)](/\s+/g,'-')[_0x3d6edd(0x112)]();if(svg[_0x3d6edd(0x152)]('.'+_0x1589f2)['size']()===0x0){var _0x468db0=filteredData['find'](function(_0x87c5e0){return _0x87c5e0[0x1]===_0x4cbf6e;});_0x468db0&&(addTeamLabel(_0x468db0),svg['select']('.'+_0x1589f2)[_0x3d6edd(0xce)](_0x3d6edd(0x10a),!![]));}})):(svg[_0x387178(0x153)]('.team-label')[_0x387178(0xf8)](function(){var _0x48e144=_0x387178,_0x30eeda=d3['select'](this),_0x1f0b75=_0x30eeda[_0x48e144(0x103)]();!clickedCircles[_0x48e144(0x135)](_0x1f0b75)&&_0x30eeda['remove']();}),svg[_0x387178(0x153)]('circle')[_0x387178(0xf7)]('fill',function(_0x495ea3){var _0x439ef0=_0x387178;return clickedCircles[_0x439ef0(0x135)](_0x495ea3[0x1])?getLeagueColor(_0x495ea3[0x2]):_0x439ef0(0x177);})['style'](_0x387178(0x14b),function(_0x25ccd4){var _0x25f68d=_0x387178;return clickedCircles[_0x25f68d(0x135)](_0x25ccd4[0x1])?_0x25f68d(0xd1):_0x25f68d(0x18c);})[_0x387178(0xf7)](_0x387178(0x11f),function(_0x548f4b){return clickedCircles['includes'](_0x548f4b[0x1])?0x2:0x0;}));});function resetSearch(){var _0x30f293=_0x3571df;searchBar['value']='',svg[_0x30f293(0x153)]('circle')[_0x30f293(0xce)]('search-match',![])[_0x30f293(0xf7)](_0x30f293(0x17d),function(_0x2742ba){var _0x35fd70=_0x30f293;return clickedCircles['includes'](_0x2742ba[0x1])?getLeagueColor(_0x2742ba[0x2]):_0x35fd70(0x177);})['style'](_0x30f293(0x14b),function(_0x502cf5){var _0x53b275=_0x30f293;return clickedCircles['includes'](_0x502cf5[0x1])?_0x53b275(0xd1):_0x53b275(0x18c);})['style'](_0x30f293(0x11f),function(_0x155d2b){var _0x4c9836=_0x30f293;return clickedCircles[_0x4c9836(0x135)](_0x155d2b[0x1])?0x2:0x0;})[_0x30f293(0xf7)](_0x30f293(0x118),_0x30f293(0x18c))[_0x30f293(0xf8)](function(){var _0x50b147=_0x30f293;d3[_0x50b147(0x152)](this)[_0x50b147(0xf7)]('r',null),d3['select'](this)[_0x50b147(0xe6)]();}),svg[_0x30f293(0x153)]('.team-label')['classed'](_0x30f293(0x10a),![])[_0x30f293(0xce)](_0x30f293(0x159),![])[_0x30f293(0xf8)](function(){var _0x39be98=_0x30f293;d3[_0x39be98(0x152)](this)[_0x39be98(0xe6)]();}),svg['selectAll'](_0x30f293(0x188))[_0x30f293(0xf8)](function(){var _0x14cafd=_0x30f293,_0x3b83fa=d3[_0x14cafd(0x152)](this),_0x333e58=_0x3b83fa[_0x14cafd(0x103)]();!clickedCircles[_0x14cafd(0x135)](_0x333e58)&&_0x3b83fa[_0x14cafd(0x114)]();});}var toggleButton=document['getElementById'](_0x3571df(0x139));toggleButton[_0x3571df(0x10b)](_0x3571df(0x13d),function(){var _0x8308bb=_0x3571df;medianLinesVisible=!medianLinesVisible,updateChart();const _0x8e4428=document['getElementById'](_0x8308bb(0x194));window['currentTranslations']&&window['currentTranslations'][_0x8308bb(0x199)]?_0x8e4428[_0x8308bb(0x195)]=medianLinesVisible?window[_0x8308bb(0x186)][_0x8308bb(0x199)][_0x8308bb(0x136)]||_0x8308bb(0x125):window[_0x8308bb(0x186)][_0x8308bb(0x199)][_0x8308bb(0xdd)]||_0x8308bb(0x115):_0x8e4428[_0x8308bb(0x195)]=medianLinesVisible?'Hide\x20median\x20lines':_0x8308bb(0x115);});function selectAllCircles(){var _0x3523e3=_0x3571df,_0x201697=filteredData[_0x3523e3(0xde)](function(_0x4abaaa){var _0xd133c=_0x3523e3;return clickedCircles[_0xd133c(0x135)](_0x4abaaa[0x1]);});_0x201697?(clickedCircles=[],svg[_0x3523e3(0x153)](_0x3523e3(0x147))['style'](_0x3523e3(0x17d),_0x3523e3(0x177))['style'](_0x3523e3(0x14b),_0x3523e3(0x18c)),svg['selectAll'](_0x3523e3(0x188))[_0x3523e3(0x114)]()):(svg[_0x3523e3(0x153)](_0x3523e3(0x147))[_0x3523e3(0xf8)](function(_0x3d3a7f){var _0x2097d7=_0x3523e3;!clickedCircles['includes'](_0x3d3a7f[0x1])&&(clickedCircles['push'](_0x3d3a7f[0x1]),d3[_0x2097d7(0x152)](this)['style'](_0x2097d7(0x17d),getLeagueColor(_0x3d3a7f[0x2]))[_0x2097d7(0xf7)](_0x2097d7(0x14b),_0x2097d7(0xd1))[_0x2097d7(0xf7)](_0x2097d7(0x11f),0x2));}),filteredData['forEach'](function(_0x1d0bb2){addTeamLabel(_0x1d0bb2);}));updateSelectAllButtonText();var _0x175c8d=document[_0x3523e3(0xe4)]('select-league')[_0x3523e3(0xfd)];updateLeagueLegend(_0x175c8d);}function _0x1ccc(){var _0x3a05aa=['5,3','slice','x-axis','block','rgba(70,\x20130,\x20180,\x200.7)','stroke-dasharray','select-league','https://datamb.football/database/TEAM/teamplots.csv','top','querySelectorAll','fill','<span>','normalize','getBoundingClientRect','translate(','className','domain','1696374GKqaNJ','.position-btn','currentTranslations','apply','.team-label','marker#arrow-over,\x20marker#arrow-under','DOMContentLoaded','link','none','24otpGFU','pageY','backgroundColor','pct','15px','append','team-label\x20','median-lines-tooltip','textContent','transform','transparent','unselectAll','tooltip','active','line','data','classed','tooltip.xg-line-left','.xy-line-bg','#000','enter','Inter,\x20sans-serif','text-anchor','keys','ion-ios-circle-filled','421244uapeDm','4652766uIFjli','xy-line','1cLpJnq','tooltip.xg-line-title','<strong>','showMedianLines','every','option','size','rgba(255,\x20165,\x200,\x200.7)','font-family','.xy-line-label-bg','getElementById','pageX','interrupt','querySelector','</span><br/>','.median-line','change','linearGradient#line-gradient','tooltip.xg-line-right','team-label-','div','819200KkhNpE','axisLeft','marginRight','Select\x20all\x20teams','appendChild','push','#select-x','G\x20=\x20xG\x20Line','style','each','parentNode','.xy-line','tickSize','body','value','xG\x20per\x2090','.team-label-','14px','innerHeight','.xy-line-hover','text','resize','median','indexOf','metrics.','input','node','search-match','addEventListener','span','innerHTML','translate(0,','split','add','</span>','toLowerCase','opacity','remove','Show\x20median\x20lines','500','select-icon','filter','right','ion-ios-circle-outline','map','all','name','league-legend','stroke-width','scaleLinear','contains','#scatter-plot','select-all-tooltip','Premier\x20League','Hide\x20median\x20lines','find','end','call','font-weight','#2ecc71','median-line','createElement','Serie\x20A','rgba(75,\x200,\x20130,\x200.7)','.chart-container','bold','</strong><br/>','262634BAIQJY','173865frQddX','rotate(-90)','includes','hideMedianLines','mouseover','132853kftxIi','toggle-median-lines','cursor','rgba(255,\x200,\x200,\x200.7)','replace','click','.xy-line-label','getBBox','left','trim','property','Teams\x20left\x20of\x20this\x20line\x20are\x20scoring\x20fewer\x20goals\x20than\x20expected.','classList','Teams\x20below\x20this\x20line\x20are\x20scoring\x20fewer\x20goals\x20than\x20expected.','display','circle','axisBottom','y-label','rgba(238,\x20130,\x20238,\x200.7)','stroke','event','transition','rgba(0,\x200,\x20255,\x200.7)','height','open','toFixed','select','selectAll','attr','#333','forEach','.chart-wrapper','min','search-dimmed','html','Teams\x20right\x20of\x20this\x20line\x20are\x20scoring\x20more\x20goals\x20than\x20expected.','font-size','duration','length','xy-line-hover','Unselect\x20all\x20teams','rgba(0,\x200,\x200,\x200.3)','range','clientWidth','responseText','metrics','GET','class','data-i18n','flex','bottom','Goals\x20per\x2090','innerWidth','max','resizeTimer','<br/>','La\x20Liga','mouseout','width'];_0x1ccc=function(){return _0x3a05aa;};return _0x1ccc();}document[_0x3571df(0x17c)](_0x3571df(0x185))['forEach'](_0x11631b=>{var _0x30f538=_0x3571df;_0x11631b[_0x30f538(0x10b)](_0x30f538(0x13d),function(){var _0x24e833=_0x30f538;document[_0x24e833(0x17c)]('.position-btn')[_0x24e833(0x156)](_0x37cc20=>_0x37cc20[_0x24e833(0x144)][_0x24e833(0x114)](_0x24e833(0x19a))),this[_0x24e833(0x144)][_0x24e833(0x110)](_0x24e833(0x19a)),updateChart();});}),updateChart(),initializeCustomSelectors();function updateLeagueLegend(_0x28da79){var _0x92ea8f=_0x3571df,_0xec6240=document['getElementById'](_0x92ea8f(0x11e));if(_0x28da79!==_0x92ea8f(0x11c)&&_0x28da79!=='Top\x205\x20Leagues'){_0xec6240[_0x92ea8f(0xf7)][_0x92ea8f(0x146)]=_0x92ea8f(0x18c);return;}if(clickedCircles[_0x92ea8f(0x15e)]===0x0){_0xec6240['style'][_0x92ea8f(0x146)]=_0x92ea8f(0x18c);return;}_0xec6240[_0x92ea8f(0xf7)][_0x92ea8f(0x146)]=_0x92ea8f(0x169),_0xec6240[_0x92ea8f(0x10d)]='';var _0x31e7b8=document[_0x92ea8f(0x12c)](_0x92ea8f(0xee));_0x31e7b8[_0x92ea8f(0xf7)]['fontWeight']=_0x92ea8f(0x130),_0x31e7b8[_0x92ea8f(0xf7)][_0x92ea8f(0xf1)]=_0x92ea8f(0x191),_0xec6240[_0x92ea8f(0xf3)](_0x31e7b8);var _0x57c9ee=[];if(_0x28da79==='all')_0x57c9ee=Object[_0x92ea8f(0xd5)](leagueColors);else _0x28da79==='Top\x205\x20Leagues'&&(_0x57c9ee=[_0x92ea8f(0x124),_0x92ea8f(0x170),'Bundesliga',_0x92ea8f(0x12d),'Ligue\x201']);_0x57c9ee[_0x92ea8f(0x156)](function(_0xe8f627){var _0x447233=_0x92ea8f,_0x3ee0ca=document['createElement'](_0x447233(0xee));_0x3ee0ca[_0x447233(0x182)]='legend-item';var _0x811942=document[_0x447233(0x12c)](_0x447233(0xee));_0x811942[_0x447233(0x182)]='legend-color',_0x811942['style'][_0x447233(0x18f)]=leagueColors[_0xe8f627];var _0x54302b=document[_0x447233(0x12c)](_0x447233(0x10c));_0x54302b[_0x447233(0x195)]=_0xe8f627,_0x3ee0ca[_0x447233(0xf3)](_0x811942),_0x3ee0ca['appendChild'](_0x54302b),_0xec6240[_0x447233(0xf3)](_0x3ee0ca);});}const data1=dataLines[_0x3571df(0x11b)](_0xc5a24b=>{var _0x29d961=_0x3571df;const [_0x2856ae,_0x59766c]=_0xc5a24b[_0x29d961(0x10f)](',');return{'name':_0x2856ae,'link':_0x59766c};});function search2(_0x17692c){var _0x4974d9=_0x3571df;autocompleteBox[_0x4974d9(0x10d)]='';const _0x444749=_0x17692c[_0x4974d9(0x112)](),_0x42f2a4=data1['filter'](_0x3dff9b=>{var _0x25d31f=_0x4974d9;const _0x592c19=_0x3dff9b[_0x25d31f(0x11d)]?_0x3dff9b[_0x25d31f(0x11d)][_0x25d31f(0x112)]():'';return _0x592c19[_0x25d31f(0x135)](_0x444749);});if(_0x42f2a4[_0x4974d9(0x15e)]===0x0){autocompleteBox[_0x4974d9(0xf7)]['display']='none';return;}_0x42f2a4[_0x4974d9(0x156)](_0x389736=>{var _0x33614d=_0x4974d9;if(_0x389736['name']&&_0x389736[_0x33614d(0x18b)]){const _0x15c5f8=document[_0x33614d(0x12c)]('div'),_0x1889d9=document[_0x33614d(0x12c)]('a');_0x1889d9['href']=_0x389736[_0x33614d(0x18b)],_0x1889d9['textContent']=_0x389736['name'],_0x15c5f8['appendChild'](_0x1889d9),autocompleteBox[_0x33614d(0xf3)](_0x15c5f8);}}),autocompleteBox[_0x4974d9(0xf7)][_0x4974d9(0x146)]=_0x4974d9(0x176);}searchInput[_0x3571df(0x10b)]('input',()=>{var _0x4ba0a8=_0x3571df;const _0x42d77b=searchInput[_0x4ba0a8(0xfd)];_0x42d77b[_0x4ba0a8(0x141)]()===''?autocompleteBox[_0x4ba0a8(0xf7)]['display']='none':search2(_0x42d77b);});function addTeamLabel(_0x1692be){var _0x230203=_0x3571df,_0xb21084=xScale(_0x1692be[header['indexOf'](xMetric)]),_0x55635a=yScale(_0x1692be[header[_0x230203(0x106)](yMetric)]),_0x394b68=_0x230203(0xed)+_0x1692be[0x1]['replace'](/\s+/g,'-')['toLowerCase']();if(svg[_0x230203(0x152)]('.'+_0x394b68)[_0x230203(0xe0)]()>0x0)return;var _0x52f706=svg[_0x230203(0x192)](_0x230203(0x103))[_0x230203(0x154)](_0x230203(0x167),_0x230203(0x193)+_0x394b68)[_0x230203(0x154)]('x',_0xb21084+0xc)[_0x230203(0x154)]('y',_0x55635a+0x4)[_0x230203(0x103)](_0x1692be[0x1])[_0x230203(0xf7)](_0x230203(0xe2),_0x230203(0xd3))[_0x230203(0xf7)](_0x230203(0x15c),'12px')['style'](_0x230203(0x129),_0x230203(0x116))[_0x230203(0xf7)](_0x230203(0x17d),_0x230203(0x155));positionLabelToAvoidOverlap(_0x52f706,_0xb21084,_0x55635a);}function positionLabelToAvoidOverlap(_0x3e9975,_0x439908,_0x36f384){var _0x2b8981=_0x3571df,_0xfe974b=svg[_0x2b8981(0x153)](_0x2b8981(0x188))[_0x2b8981(0x118)](function(){var _0xba2047=_0x2b8981;return this!==_0x3e9975[_0xba2047(0x109)]();}),_0x380533=_0x3e9975['node']()[_0x2b8981(0x13f)](),_0x2bd2ed=[{'x':_0x439908+0xc,'y':_0x36f384+0x4},{'x':_0x439908+0xc,'y':_0x36f384-0xa},{'x':_0x439908+0xc,'y':_0x36f384+0x12},{'x':_0x439908-_0x380533[_0x2b8981(0x172)]-0x5,'y':_0x36f384+0x4},{'x':_0x439908-_0x380533[_0x2b8981(0x172)]-0x5,'y':_0x36f384-0xa},{'x':_0x439908-_0x380533['width']-0x5,'y':_0x36f384+0x12},{'x':_0x439908-_0x380533[_0x2b8981(0x172)]/0x2,'y':_0x36f384-0xf},{'x':_0x439908-_0x380533[_0x2b8981(0x172)]/0x2,'y':_0x36f384+0x19}],_0x52f920=findPositionWithoutOverlap(_0x2bd2ed,_0xfe974b,_0x380533);_0x3e9975[_0x2b8981(0x154)]('x',_0x52f920['x'])[_0x2b8981(0x154)]('y',_0x52f920['y']);}function findPositionWithoutOverlap(_0x2cb2f9,_0x532a84,_0x108613){var _0x139ff3=_0x3571df;for(var _0x7066e1=0x0;_0x7066e1<_0x2cb2f9['length'];_0x7066e1++){var _0x5c2c02=_0x2cb2f9[_0x7066e1],_0x57c869=![],_0x42e91e={'x1':_0x5c2c02['x'],'y1':_0x5c2c02['y']-_0x108613[_0x139ff3(0x14f)],'x2':_0x5c2c02['x']+_0x108613[_0x139ff3(0x172)],'y2':_0x5c2c02['y']+0x5};if(_0x42e91e['x1']<0x0||_0x42e91e['x2']>width||_0x42e91e['y1']<0x0||_0x42e91e['y2']>height)continue;_0x532a84[_0x139ff3(0xf8)](function(){var _0x1204e6=_0x139ff3,_0x21008f=d3['select'](this)[_0x1204e6(0x109)]()[_0x1204e6(0x13f)](),_0xa66f92=parseFloat(d3[_0x1204e6(0x152)](this)[_0x1204e6(0x154)]('x')),_0x21771e=parseFloat(d3[_0x1204e6(0x152)](this)['attr']('y')),_0x444527={'x1':_0xa66f92,'y1':_0x21771e-_0x21008f['height'],'x2':_0xa66f92+_0x21008f[_0x1204e6(0x172)],'y2':_0x21771e+0x5};!(_0x42e91e['x2']<_0x444527['x1']||_0x42e91e['x1']>_0x444527['x2']||_0x42e91e['y2']<_0x444527['y1']||_0x42e91e['y1']>_0x444527['y2'])&&(_0x57c869=!![]);});if(!_0x57c869)return _0x5c2c02;}for(var _0x7066e1=0x0;_0x7066e1<_0x2cb2f9[_0x139ff3(0x15e)];_0x7066e1++){var _0x5c2c02=_0x2cb2f9[_0x7066e1],_0x42e91e={'x1':_0x5c2c02['x'],'y1':_0x5c2c02['y']-_0x108613[_0x139ff3(0x14f)],'x2':_0x5c2c02['x']+_0x108613['width'],'y2':_0x5c2c02['y']+0x5};if(_0x42e91e['x1']>=0x0&&_0x42e91e['x2']<=width&&_0x42e91e['y1']>=0x0&&_0x42e91e['y2']<=height)return _0x5c2c02;}var _0x48bee4={'x':Math[_0x139ff3(0x158)](Math[_0x139ff3(0x16d)](0x0,_0x2cb2f9[0x0]['x']),width-_0x108613[_0x139ff3(0x172)]),'y':Math['min'](Math[_0x139ff3(0x16d)](_0x108613[_0x139ff3(0x14f)],_0x2cb2f9[0x0]['y']),height)};return _0x48bee4;}var originalUpdateChart=updateChart;updateChart=function(){originalUpdateChart(),setTimeout(function(){var _0x399db0=_0x246a,_0x1d06f4=svg['selectAll'](_0x399db0(0x188));_0x1d06f4[_0x399db0(0xf8)](function(){var _0x1e688c=_0x399db0,_0x2e161f=d3['select'](this),_0x4a0c96=_0x2e161f[_0x1e688c(0x103)](),_0x34c014=filteredData[_0x1e688c(0x126)](function(_0x6a60cb){return _0x6a60cb[0x1]===_0x4a0c96;});if(_0x34c014){var _0x48c837=xScale(_0x34c014[header[_0x1e688c(0x106)](xMetric)]),_0x5b716f=yScale(_0x34c014[header[_0x1e688c(0x106)](yMetric)]);positionLabelToAvoidOverlap(_0x2e161f,_0x48c837,_0x5b716f);}});},0xa);},document[_0x3571df(0x10b)](_0x3571df(0x18a),function(){var _0x30de03=_0x3571df;const _0x5bfd1d=document['getElementById'](_0x30de03(0x194));_0x5bfd1d[_0x30de03(0x195)]=medianLinesVisible?_0x30de03(0x125):'Show\x20median\x20lines';});        
-    </script>
-  <script>
-    // Translation functionality
-    function setLanguage(language) {
-      localStorage.setItem('preferredLanguage', language);
-      // Update URL with language parameter
-      const url = new URL(window.location.href);
-      if (language === 'en') {
-        url.searchParams.delete('lang');
-      } else {
-        url.searchParams.set('lang', language);
-      }
-      window.history.pushState({}, '', url);
-      applyLanguage(language);
-    }
-    
-    function getPreferredLanguage() {
-      // Check URL parameter first
-      const urlParams = new URLSearchParams(window.location.search);
-      const langParam = urlParams.get('lang');
-      if (langParam) {
-        return langParam;
-      }
-      return localStorage.getItem('preferredLanguage') || getBrowserLanguage() || 'en';
-    }
-    
-    function getBrowserLanguage() {
-      return navigator.language.slice(0, 2);
-    }
-    
-    function applyLanguage(language) {
-      fetch(`locales/${language}.json`)
-        .then(response => response.json())
-        .then(translations => {
-          // Store translations globally for dynamic access
-          window.currentTranslations = translations;
-          
-          // Update text content for elements with data-i18n attribute
-          document.querySelectorAll('[data-i18n]').forEach(element => {
-            const keys = element.getAttribute('data-i18n').split('.');
-            let value = translations;
-            for (const key of keys) {
-              value = value[key];
-            }
-            if (value) {
-              element.textContent = value;
-            }
-          });
-    
-
-    
-          // Update meta tags
-          document.title = translations.meta.title;
-          document.querySelector('meta[name="description"]').setAttribute('content', translations.meta.description);
-          document.querySelector('meta[name="language"]').setAttribute('content', language);
-        });
-    }
-    
-    // Initialize translations
-    const preferredLanguage = getPreferredLanguage();
-    applyLanguage(preferredLanguage);
-    
-    // Language dropdown functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const languageButton = document.getElementById('languageButton');
-      const languageDropdown = document.getElementById('languageDropdown');
-    
-      // Toggle dropdown on button click
-      languageButton.addEventListener('click', function(e) {
-        e.stopPropagation();
-        languageDropdown.classList.toggle('show');
-      });
-    
-      // Handle language option clicks
-      document.querySelectorAll('.language-option').forEach(option => {
-        option.addEventListener('click', function(e) {
-          e.preventDefault();
-          const lang = this.getAttribute('href').split('=')[1];
-          setLanguage(lang);
-          languageDropdown.classList.remove('show');
-        });
-      });
-    
-      // Close dropdown when clicking outside
-      document.addEventListener('click', function(event) {
-        if (!event.target.closest('.language-switcher-container')) {
-          languageDropdown.classList.remove('show');
-        }
-      });
-    });
     </script>
     
 </body>
